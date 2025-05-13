@@ -1,36 +1,119 @@
-.customer-form {
+@import url('https://fonts.googleapis.com/css?family=Segoe+UI');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Ana uygulama kapsayıcı */
+.App {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  padding: 10px;
+  background-color: #f4f4f4;
+  min-height: 100vh; /* Sayfa yüksekliği boyunca yayıl */
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  max-width: 300px;
-  margin-bottom: 20px;
 }
 
-.customer-form input {
-  padding: 6px;
-  border: 1px solid #aaa;
-  border-radius: 4px;
+/* Arama çubuğu üst alanı */
+.top-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+  padding: 6px 12px;
+  background-color: #f4f4f4;
 }
 
-.customer-form button {
-  background: #1e90ff;
+/* Arama input */
+.search-input {
+  flex: 1;
+  height: 30px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+/* Arama butonu */
+.search-button {
+  height: 30px;
+  padding: 0 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search-button:hover {
+  background-color: #45a049;
+}
+
+/* Sayfanın alt kısmını kapsayan konteyner */
+.layout-container {
+  flex: 1; /* 📏 App yüksekliğini doldur */
+  display: flex;
+  align-items: stretch; /* 🔁 Sol ve sağ panelleri eşit hizada tutar */
+  gap: 15px;
+  padding-bottom: 10px; /* 🔧 Alt boşluk dengesi */
+}
+
+/* Sol panel */
+.left-section {
+  width: 40%;
+  min-width: 500px;
+  background-color: #fff;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sağ panel */
+.main-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 15px;
+  min-height: 100%; /* Sol panel ile eşit yükseklik */
+}
+
+/* Kutular */
+.grid-item {
+  background-color: #fff;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+/* İç kutu görünüm */
+.box {
+  background-color: #fff;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  margin-bottom: 15px;
+}
+
+/* Başlıklar */
+h3 {
+  background-color: #4CAF50;
   color: white;
   padding: 8px;
-  border: none;
   border-radius: 4px;
-  cursor: pointer;
+  font-size: 16px;
 }
 
-.customer-list {
-  margin-top: 20px;
-}
 
-.customer-list ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.customer-list li {
-  padding: 6px 0;
-  border-bottom: 1px solid #ddd;
-}

@@ -1,30 +1,45 @@
 import React, { useEffect, useState } from 'react';
-import api from '../../services/api';
-import './CustomerPanel.css';
+import api from '../services/api';
 
 const CustomerList = () => {
   const [customers, setCustomers] = useState([]);
 
-  const fetchData = async () => {
-    const res = await api.get('/customer');
-    setCustomers(res.data);
+  const fetchCustomers = async () => {
+    try {
+      const res = await api.get('/customer');
+      setCustomers(res.data);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   useEffect(() => {
-    fetchData();
+    fetchCustomers();
   }, []);
 
   return (
-    <div className="customer-list">
-      <h3>Müşteri Listesi</h3>
-      <ul>
+    <table border="1" cellPadding="6">
+      <thead>
+        <tr>
+          <th>Ad</th>
+          <th>Soyad</th>
+          <th>Telefon</th>
+          <th>Ev Tel</th>
+          <th>E-posta</th>
+        </tr>
+      </thead>
+      <tbody>
         {customers.map(c => (
-          <li key={c.customerId}>
-            <strong>{c.name} {c.surname}</strong> – {c.tel}
-          </li>
+          <tr key={c.customerId}>
+            <td>{c.name}</td>
+            <td>{c.surname}</td>
+            <td>{c.tel}</td>
+            <td>{c.homeTel}</td>
+            <td>{c.mail}</td>
+          </tr>
         ))}
-      </ul>
-    </div>
+      </tbody>
+    </table>
   );
 };
 

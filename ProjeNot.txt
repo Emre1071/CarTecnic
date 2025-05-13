@@ -1,0 +1,31 @@
+
+src/
+├── components/
+│   ├── CustomerDetail.js
+│   ├── CustomerList.js
+│   ├── ComplaintDetail.js
+│   ├── FinancialDetail.js
+│   ├── VehicleDetail.js
+│   ├── SearchBar.js
+│
+├── services/
+│   └── api.js
+│
+├── App.js
+├── App.css
+├── index.js
+└── index.css
+
+
+
+
+
+orjinalliği bozmadan güncellermisin kral
+
+
+
+
+
+
+
+
