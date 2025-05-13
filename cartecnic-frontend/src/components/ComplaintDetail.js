@@ -56,58 +56,70 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
     setSelectedOperation(null);
   };
 
+  const inputStyle = {
+    width: '100%',
+    padding: '8px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+    fontSize: '14px',
+    boxSizing: 'border-box',
+    marginBottom: '10px'
+  };
+
+  const labelStyle = {
+    fontWeight: '600',
+    marginBottom: '4px',
+    display: 'block',
+    fontSize: '14px'
+  };
+
   const buttonStyle = {
     backgroundColor: 'green',
     border: 'none',
-    padding: '8px',
+    padding: '6px 8px',
     borderRadius: '4px',
     cursor: 'pointer'
   };
 
   return (
-    <div className="box">
+    <div className="box" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <h3>Şikayet Bilgileri</h3>
 
-      <div style={{ display: 'flex', gap: '10px' }}>
-        <div style={{ flex: 1 }}>
-          <label>Durum:</label>
-          <select name="status" value={complaint.status} onChange={handleChange}>
-            {statusOptions.map((opt, idx) => (
-              <option key={idx} value={opt}>{opt}</option>
-            ))}
-          </select>
+      <div style={{ flexGrow: 1 }}>
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <div style={{ flex: 1 }}>
+            <label style={labelStyle}>Durum:</label>
+            <select name="status" value={complaint.status} onChange={handleChange} style={inputStyle}>
+              {statusOptions.map((opt, idx) => (
+                <option key={idx} value={opt}>{opt}</option>
+              ))}
+            </select>
+          </div>
+          <div style={{ flex: 1 }}>
+            <label style={labelStyle}>Şube:</label>
+            <select name="branch" value={complaint.branch} onChange={handleChange} style={inputStyle}>
+              <option value="Dükkan">Dükkan</option>
+              <option value="Şube 1">Şube 1</option>
+              <option value="Şube 2">Şube 2</option>
+              <option value="Şube 3">Şube 3</option>
+              <option value="Şube 4">Şube 4</option>
+            </select>
+          </div>
         </div>
 
-        <div style={{ flex: 1 }}>
-          <label>Şube:</label>
-          <select name="branch" value={complaint.branch} onChange={handleChange}>
-            <option value="Dükkan">Dükkan</option>
-            <option value="Şube 1">Şube 1</option>
-            <option value="Şube 2">Şube 2</option>
-            <option value="Şube 3">Şube 3</option>
-            <option value="Şube 4">Şube 4</option>
-          </select>
-        </div>
+        <label style={labelStyle}>Arıza Açıklaması:</label>
+        <input type="text" name="fault" value={complaint.fault} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Sonuç:</label>
+        <input type="text" name="result" value={complaint.result} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Ücret (TL):</label>
+        <input type="number" name="processCost" value={complaint.processCost} onChange={handleChange} style={inputStyle} />
       </div>
 
-      <div>
-        <label>Arıza Açıklaması:</label>
-        <input type="text" name="fault" value={complaint.fault} onChange={handleChange} />
-      </div>
-
-      <div>
-        <label>Sonuç:</label>
-        <input type="text" name="result" value={complaint.result} onChange={handleChange} />
-      </div>
-
-      <div>
-        <label>Ücret (TL):</label>
-        <input type="number" name="processCost" value={complaint.processCost} onChange={handleChange} />
-      </div>
-
-      <div style={{ marginTop: '10px', display: 'flex', gap: '12px' }}>
-        <button onClick={handleClear} style={buttonStyle}><FaPlus size={16} color="white" /></button>
-        <button onClick={handleSave} style={buttonStyle}><MdSave size={20} color="white" /></button>
+      <div style={{ display: 'flex', gap: '10px', justifyContent: 'start' }}>
+        <button onClick={handleClear} style={buttonStyle}><FaPlus size={14} color="white" /></button>
+        <button onClick={handleSave} style={buttonStyle}><MdSave size={16} color="white" /></button>
       </div>
     </div>
   );

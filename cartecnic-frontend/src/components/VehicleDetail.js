@@ -53,46 +53,60 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
     setSelectedOperation(null);
   };
 
+  // ✅ Stiller
+  const inputStyle = {
+    width: '100%',
+    padding: '8px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+    fontSize: '14px',
+    boxSizing: 'border-box',
+    marginBottom: '10px'
+  };
+
+  const labelStyle = {
+    fontWeight: '600',
+    marginBottom: '4px',
+    display: 'block',
+    fontSize: '14px'
+  };
+
   const buttonStyle = {
     backgroundColor: 'green',
     border: 'none',
-    padding: '8px',
+    padding: '6px 8px',
     borderRadius: '4px',
     cursor: 'pointer'
   };
 
   return (
-    <div className="box">
+    <div className="box" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <h3>Araç Bilgileri</h3>
 
-      <div>
-        <label>Plaka:</label>
-        <input name="plate" value={vehicle.plate} onChange={handleChange} />
+      <div style={{ flexGrow: 1 }}>
+        <label style={labelStyle}>Plaka:</label>
+        <input name="plate" value={vehicle.plate} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Marka:</label>
+        <input name="brand" value={vehicle.brand} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Tür:</label>
+        <input name="type" value={vehicle.type} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Model:</label>
+        <input name="model" value={vehicle.model} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Müşteri ID:</label>
+        <input name="customerId" value={vehicle.customerId} onChange={handleChange} style={inputStyle} />
       </div>
 
-      <div>
-        <label>Marka:</label>
-        <input name="brand" value={vehicle.brand} onChange={handleChange} />
-      </div>
-
-      <div>
-        <label>Tür:</label>
-        <input name="type" value={vehicle.type} onChange={handleChange} />
-      </div>
-
-      <div>
-        <label>Model:</label>
-        <input name="model" value={vehicle.model} onChange={handleChange} />
-      </div>
-
-      <div>
-        <label>Müşteri ID:</label>
-        <input name="customerId" value={vehicle.customerId} onChange={handleChange} />
-      </div>
-
-      <div style={{ marginTop: '10px', display: 'flex', gap: '12px' }}>
-        <button onClick={handleClear} style={buttonStyle}><FaPlus size={16} color="white" /></button>
-        <button onClick={handleSave} style={buttonStyle}><MdSave size={20} color="white" /></button>
+      <div style={{ display: 'flex', gap: '10px', justifyContent: 'start' }}>
+        <button onClick={handleClear} style={buttonStyle}>
+          <FaPlus size={14} color="white" />
+        </button>
+        <button onClick={handleSave} style={buttonStyle}>
+          <MdSave size={16} color="white" />
+        </button>
       </div>
     </div>
   );

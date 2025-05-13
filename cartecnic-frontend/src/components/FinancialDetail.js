@@ -45,40 +45,60 @@ const FinancialDetail = ({ selectedOperation, setSelectedOperation, page, refres
     setSelectedOperation(null);
   };
 
+  // ✅ Stiller
+  const inputStyle = {
+    width: '100%',
+    padding: '8px',
+    borderRadius: '4px',
+    border: '1px solid #ccc',
+    fontSize: '14px',
+    boxSizing: 'border-box',
+    marginBottom: '10px'
+  };
+
+  const labelStyle = {
+    fontWeight: '600',
+    marginBottom: '4px',
+    display: 'block',
+    fontSize: '14px'
+  };
+
   const buttonStyle = {
     backgroundColor: 'green',
     border: 'none',
-    padding: '8px',
+    padding: '6px 8px',
     borderRadius: '4px',
     cursor: 'pointer'
   };
 
   return (
-    <div className="box">
+    <div className="box" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <h3>Finansal Bilgiler</h3>
 
-      <div>
-        <label>Müşteri ID:</label>
-        <input name="customerId" value={finance.customerId} onChange={handleChange} />
-      </div>
+      <div style={{ flexGrow: 1 }}>
+        <label style={labelStyle}>Müşteri ID:</label>
+        <input name="customerId" value={finance.customerId} onChange={handleChange} style={inputStyle} />
 
-      <div>
-        <label>Ödeme Türü:</label>
-        <select name="paymentType" value={finance.paymentType} onChange={handleChange}>
+        <label style={labelStyle}>Ödeme Türü:</label>
+        <select name="paymentType" value={finance.paymentType} onChange={handleChange} style={inputStyle}>
           <option value="Nakit">Nakit</option>
           <option value="Kredi">Kredi</option>
           <option value="Havale">Havale</option>
         </select>
+
+        <label style={labelStyle}>Ödeme Tutarı (TL):</label>
+        <input
+          type="number"
+          name="paymentAmount"
+          value={finance.paymentAmount}
+          onChange={handleChange}
+          style={inputStyle}
+        />
       </div>
 
-      <div>
-        <label>Ödeme Tutarı (TL):</label>
-        <input type="number" name="paymentAmount" value={finance.paymentAmount} onChange={handleChange} />
-      </div>
-
-      <div style={{ marginTop: '10px', display: 'flex', gap: '12px' }}>
-        <button onClick={handleClear} style={buttonStyle}><FaPlus size={16} color="white" /></button>
-        <button onClick={handleSave} style={buttonStyle}><MdSave size={20} color="white" /></button>
+      <div style={{ display: 'flex', gap: '10px', justifyContent: 'start' }}>
+        <button onClick={handleClear} style={buttonStyle}><FaPlus size={14} color="white" /></button>
+        <button onClick={handleSave} style={buttonStyle}><MdSave size={16} color="white" /></button>
       </div>
     </div>
   );

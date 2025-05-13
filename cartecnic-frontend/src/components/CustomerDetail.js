@@ -53,46 +53,62 @@ const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refresh
     setSelectedOperation(null);
   };
 
-  const buttonStyle = {
-    backgroundColor: 'green',
-    border: 'none',
+  // ✅ Stiller
+  const inputStyle = {
+    width: '100%',
     padding: '8px',
     borderRadius: '4px',
-    cursor: 'pointer'
+    border: '1px solid #ccc',
+    fontSize: '14px',
+    boxSizing: 'border-box',
+    marginBottom: '10px'
   };
 
+  const labelStyle = {
+    fontWeight: '600',
+    marginBottom: '4px',
+    display: 'block',
+    fontSize: '14px'
+  };
+
+  const buttonStyle = {
+  backgroundColor: 'green',
+  border: 'none',
+  padding: '6px 8px',      // 🔁 Daha ince ve dar
+  borderRadius: '4px',
+  cursor: 'pointer'
+  };
+
+
   return (
-    <div className="box">
+    <div className="box" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
       <h3>Müşteri Bilgileri</h3>
 
-      <div>
-        <label>Ad:</label>
-        <input name="name" value={customer.name} onChange={handleChange} />
+      <div style={{ flexGrow: 1 }}>
+        <label style={labelStyle}>Ad:</label>
+        <input name="name" value={customer.name} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Soyad:</label>
+        <input name="surname" value={customer.surname} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Telefon:</label>
+        <input name="tel" value={customer.tel} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Ev Telefonu:</label>
+        <input name="homeTel" value={customer.homeTel} onChange={handleChange} style={inputStyle} />
+
+        <label style={labelStyle}>Email:</label>
+        <input name="mail" value={customer.mail} onChange={handleChange} style={inputStyle} />
       </div>
 
-      <div>
-        <label>Soyad:</label>
-        <input name="surname" value={customer.surname} onChange={handleChange} />
-      </div>
+      <div style={{ display: 'flex', gap: '10px', justifyContent: 'start' }}>
+        <button onClick={handleClear} style={buttonStyle}>
+            <FaPlus size={14} color="white" />
+          </button>
+          <button onClick={handleSave} style={buttonStyle}>
+          <MdSave size={16} color="white" />
+        </button>
 
-      <div>
-        <label>Telefon:</label>
-        <input name="tel" value={customer.tel} onChange={handleChange} />
-      </div>
-
-      <div>
-        <label>Ev Tel:</label>
-        <input name="homeTel" value={customer.homeTel} onChange={handleChange} />
-      </div>
-
-      <div>
-        <label>E-Posta:</label>
-        <input name="mail" value={customer.mail} onChange={handleChange} />
-      </div>
-
-      <div style={{ marginTop: '10px', display: 'flex', gap: '12px' }}>
-        <button onClick={handleClear} style={buttonStyle}><FaPlus size={16} color="white" /></button>
-        <button onClick={handleSave} style={buttonStyle}><MdSave size={20} color="white" /></button>
       </div>
     </div>
   );

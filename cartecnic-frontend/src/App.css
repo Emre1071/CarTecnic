@@ -11,7 +11,7 @@ html, body {
   font-family: 'Segoe UI', Arial, sans-serif;
   padding: 10px;
   background-color: #f4f4f4;
-  min-height: 100vh; /* Sayfa yüksekliği boyunca yayıl */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -60,11 +60,12 @@ html, body {
 
 /* Sayfanın alt kısmını kapsayan konteyner */
 .layout-container {
-  flex: 1; /* 📏 App yüksekliğini doldur */
+  flex: 1;
   display: flex;
-  align-items: stretch; /* 🔁 Sol ve sağ panelleri eşit hizada tutar */
+  align-items: stretch;
   gap: 15px;
-  padding-bottom: 10px; /* 🔧 Alt boşluk dengesi */
+  padding-bottom: 10px;
+  overflow: hidden; /* Taşmayı engelle */
 }
 
 /* Sol panel */
@@ -77,6 +78,9 @@ html, body {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  height: calc(100vh - 110px); /* Sağ tarafla aynı yükseklik */
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
 /* Sağ panel */
@@ -84,9 +88,11 @@ html, body {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: 1fr 1fr;
   gap: 15px;
-  min-height: 100%; /* Sol panel ile eşit yükseklik */
+  height: calc(100vh - 110px); /* Arama çubuğu + padding = ~110px */
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 /* Kutular */
@@ -95,6 +101,11 @@ html, body {
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 0;
+  box-sizing: border-box;
 }
 
 /* İç kutu görünüm */
@@ -104,7 +115,10 @@ html, body {
   border: 2px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  box-sizing: border-box;
 }
 
 /* Başlıklar */
@@ -114,6 +128,5 @@ h3 {
   padding: 8px;
   border-radius: 4px;
   font-size: 16px;
+  margin-top: 0;
 }
-
-
