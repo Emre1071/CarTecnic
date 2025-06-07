@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarTecnicBackent")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cabb753b121f33bf9b94a70d433650d7d742df0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+34e910c376cdab69f26e35a25a239c7a0a70c7aa")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarTecnicBackent")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarTecnicBackent")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

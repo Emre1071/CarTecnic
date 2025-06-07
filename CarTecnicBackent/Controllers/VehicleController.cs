@@ -34,6 +34,7 @@ namespace CarTecnicBackend.Controllers
             return vehicle;
         }
 
+
         // 🔹 Yeni araç ekle
         [HttpPost]
         public async Task<ActionResult<Vehicle>> CreateVehicle(Vehicle vehicle)
@@ -43,6 +44,7 @@ namespace CarTecnicBackend.Controllers
 
             return CreatedAtAction(nameof(GetVehicle), new { plate = vehicle.Plate }, vehicle);
         }
+
 
         // 🔹 Araç güncelle
         [HttpPut("{plate}")]

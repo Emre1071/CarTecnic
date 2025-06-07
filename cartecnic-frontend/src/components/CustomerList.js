@@ -1,47 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import api from '../services/api';
 
-const CustomerList = () => {
-  const [customers, setCustomers] = useState([]);
-  const [filteredCustomers, setFilteredCustomers] = useState([]);
+const pageSize = 20; // Sayfa başına gösterilecek kayıt
+
+const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFilteredCustomers, searchQuery, setSearchQuery }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState('');
   const [selectedBranch, setSelectedBranch] = useState('');
-
-  const itemsPerPage = 10;
+  const [selectedFormNo, setSelectedFormNo] = useState(null);
 
   useEffect(() => {
-    fetchCustomers();
-  }, []);
+    fetchCustomers(); // her aramada ve sayfa değişiminde çalışsın
+  }, [currentPage, searchQuery]);
 
   const fetchCustomers = async () => {
     try {
-      const res = await api.get('/customer');
-      setCustomers(res.data);
+      const url = `/Transaction/pagedSearch?q=${encodeURIComponent(searchQuery)}&page=${currentPage}`;
+      const res = await api.get(url);
       setFilteredCustomers(res.data);
     } catch (err) {
-      console.error(err);
+      console.error('Veri alınamadı:', err);
     }
   };
+
+
 
   const clearFilters = () => {
     setSelectedStatus('');
     setSelectedBranch('');
-    setFilteredCustomers(customers);
+    setSearchQuery(''); // ✅ arama temizlensin
+    setFilteredCustomers([]);
+    setCurrentPage(1); // başa dön
   };
-
-  const paginatedData = filteredCustomers.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
-
-  const prevPage = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
-  };
+  const paginatedData = filteredCustomers; // Zaten sayfalı geliyor
 
   const nextPage = () => {
-    if (currentPage < Math.ceil(filteredCustomers.length / itemsPerPage)) {
-      setCurrentPage(currentPage + 1);
+    setCurrentPage(currentPage + 1); // Backend sayfalama yapıyor, kontrol orada
+  };
+
+
+  const prevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
     }
   };
 
@@ -58,10 +58,47 @@ const CustomerList = () => {
     border: '1px solid #ddd',
   };
 
+  const handleSelectTransaction = async (formNo) => {
+    try {
+      setSelectedFormNo(formNo); // Seçili satırı güncelle
+      const res = await api.get(`/Transaction/${formNo}`);
+      // API'den gelen veriyi tablolara uygun formata dönüştür
+      const formattedData = {
+        customer: {
+          name: res.data.ad,
+          surname: res.data.soyad,
+          tel: res.data.telefon,
+          homeTel: res.data.evTel,
+          mail: res.data.mail,
+          customerId: res.data.customerId
+        },
+        product: {
+          plate: res.data.plaka,
+          brand: res.data.marka,
+          type: res.data.tip,
+          model: res.data.model
+        },
+        status: res.data.status,
+        problem: res.data.problem,
+        result: res.data.result,
+        price: res.data.price,
+        department: res.data.department,
+        workerName: res.data.workerName,
+        customerId: res.data.customerId,
+        formNo: res.data.formNo
+      };
+
+      setSelectedOperation(formattedData);
+    } catch (error) {
+      console.error("İşlem detayları alınamadı:", error);
+    }
+  };
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+
       {/* LİSTE KUTUSU */}
-      <div style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '6px', flex: '1 0 auto' }}>
+      <div style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '6px', flex: '1 0 auto', overflow: 'hidden' }}>
         {/* TABLO */}
         <table width="100%" style={{ borderCollapse: 'collapse' }}>
           <thead>
@@ -76,13 +113,21 @@ const CustomerList = () => {
           </thead>
           <tbody>
             {paginatedData.map((c, index) => (
-              <tr key={c.customerId || index}>
-                <td style={tdStyle}>{c.formNo || '-'}</td>
-                <td style={tdStyle}>{c.name}</td>
-                <td style={tdStyle}>{c.surname}</td>
-                <td style={tdStyle}>{c.tel}</td>
-                <td style={tdStyle}>{c.category || '-'}</td>
-                <td style={tdStyle}>{c.price ? `${c.price} TL` : '-'}</td>
+              <tr
+                key={c.formNo || index}
+                onClick={() => handleSelectTransaction(c.formNo)}
+                style={{
+                  cursor: 'pointer',
+                  ...tdStyle,
+                  backgroundColor: selectedFormNo === c.formNo ? '#90EE90' : 'transparent'
+                }}
+              >
+                <td style={tdStyle}>{c.formNo}</td>
+                <td style={tdStyle}>{c.ad}</td>
+                <td style={tdStyle}>{c.soyad}</td>
+                <td style={tdStyle}>{c.telefon}</td>
+                <td style={tdStyle}>{c.kategori || '-'}</td>
+                <td style={tdStyle}>{c.ucret || '-'}</td>
               </tr>
             ))}
           </tbody>

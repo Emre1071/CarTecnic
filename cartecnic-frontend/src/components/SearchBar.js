@@ -1,25 +1,80 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaSearch } from 'react-icons/fa';
 
-function SearchBar({ onSearch }) {
+function SearchBar({ onSearch, onCustomerSelect, searchResults, setSearchResults, setShowPopup, onEnterSearch }) {
   const [query, setQuery] = useState('');
+  const popupRef = useRef();
 
-  const handleSearch = () => {
-    if (onSearch) onSearch(query);
-  };
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      if (query.length >= 2) {
+        onSearch(query);
+        setShowPopup(true);
+      } else {
+        setShowPopup(false);
+        setSearchResults([]);
+      }
+    }, 400);
+
+    return () => clearTimeout(delay);
+  }, [query, onSearch, setShowPopup, setSearchResults]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        setShowPopup(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [setShowPopup]);
 
   return (
-    <div className="top-section">
-      <input
-        className="search-input"
-        type="text"
-        placeholder="Müşteri, plaka, işlem no..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button className="search-button" onClick={handleSearch}>
-        <FaSearch /> Arama
-      </button>
+    <div className="search-container">
+      <div className="search-box">
+        <input
+          className="search-input"
+          type="text"
+          placeholder="Müşteri, plaka, işlem no..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && query.length >= 2) {
+              onSearch(query);           // popup arama
+              setShowPopup(false);       // popup kapanır
+              setSearchResults([]);      // popup sonuçları temizlenir
+              if (typeof onEnterSearch === 'function') {
+                onEnterSearch(query);    // CustomerList'te sayfalı arama
+              }
+            }
+          }}
+        />
+        <button
+          className="search-button"
+          onClick={() => query.length >= 2 && onSearch(query)}
+        >
+          <FaSearch /> Arama
+        </button>
+      </div>
+
+      {searchResults?.length > 0 && (
+        <div className="popup-container" ref={popupRef}>
+          {searchResults.map((result, index) => (
+            <div
+              key={index}
+              className="popup-item"
+              onClick={() => {
+                setQuery('');
+                setShowPopup(false);
+                setSearchResults([]);
+                onCustomerSelect(result.customerId); // ✅ Müşteri ID gönder
+              }}
+            >
+              <strong>#{result.transactionId}</strong> - {result.ad} {result.soyad} | 📞 {result.telefon} | 🚗 {result.plaka}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

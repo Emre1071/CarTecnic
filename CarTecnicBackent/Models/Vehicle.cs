@@ -18,7 +18,7 @@ namespace CarTecnicBackend.Models
 
         // Müşteri ilişkisi
         public int CustomerId { get; set; }
-        public Customer Customer { get; set; } = null!;
+        public Customer? Customer { get; set; }
 
         // İşlem ilişkisi
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();

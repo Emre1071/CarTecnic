@@ -1,26 +1,65 @@
 
-src/
-├── components/
-│   ├── CustomerDetail.js
-│   ├── CustomerList.js
-│   ├── ComplaintDetail.js
-│   ├── FinancialDetail.js
-│   ├── VehicleDetail.js
-│   ├── SearchBar.js
-│
-├── services/
-│   └── api.js
-│
-├── App.js
-├── App.css
-├── index.js
-└── index.css
-
-
 
 
 
 orjinalliği bozmadan güncellermisin kral bana full halini at
+
+
+
+	swagger
+
+http://localhost:5163/swagger
+
+
+
+
+
+-------------------------- Yapılacaklar -------------------------------
+
+
+
+- vehicle modelinden customeri çıkart ve bağlantığı kaldır
+
+- çalışan bağlantılarını ekle ürünle ilişkilendir çalışan 
+
+- şikayet kısmını kontrol et swagger testlerini ayarla 
+
+
+- 1000 veri oluştur
+
+
+
+
+
+
+
+
+-------------------------- Bitenler -------------------------------
+
+
+
+
+
+
+
+
+
+
+	17:00 - 17:15
+
+	17:15 - 18:00
+	
+	18:15 - 19:00
+	
+
+
+
+
+
+
+
+
+
 
 
 

@@ -34,6 +34,7 @@ namespace CarTecnicBackend.Controllers
             return customer;
         }
 
+
         // 🔹 Yeni müşteri oluştur
         [HttpPost]
         public async Task<ActionResult<Customer>> CreateCustomer(Customer customer)
@@ -43,6 +44,7 @@ namespace CarTecnicBackend.Controllers
 
             return CreatedAtAction(nameof(GetCustomer), new { id = customer.CustomerId }, customer);
         }
+
 
         // 🔹 Müşteri güncelle
         [HttpPut("{id}")]
@@ -92,5 +94,37 @@ namespace CarTecnicBackend.Controllers
 
             return customer;
         }
+
+
+
+        // 🔍 Belirli müşteri ID'sine göre işlemleri (Transaction) getir
+        [HttpGet("filter-by-customer/{customerId}")]
+        public async Task<ActionResult<IEnumerable<object>>> GetTransactionsByCustomerId(int customerId)
+        {
+            var transactions = await _context.Transactions
+                .Include(t => t.Customer)
+                .Include(t => t.Vehicle)
+                .Where(t => t.CustomerId == customerId)
+                .OrderByDescending(t => t.TransactionId)
+                .ToListAsync();
+
+            var result = transactions.Select(t => new
+            {
+                formNo = t.TransactionId,
+                ad = t.Customer?.Name ?? "",
+                soyad = t.Customer?.Surname ?? "",
+                telefon = t.Customer?.Tel ?? "",
+                kategori = t.Vehicle?.Type ?? "-",
+                ucret = t.Price.HasValue ? $"{t.Price:0.00} TL" : "-"
+            });
+
+            return Ok(result);
+        }
+
+
+
+
+
+
     }
 }

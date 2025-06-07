@@ -12,6 +12,7 @@ const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refresh
     mail: ''
   });
 
+
   useEffect(() => {
     if (selectedOperation && selectedOperation.customer) {
       setCustomer({
