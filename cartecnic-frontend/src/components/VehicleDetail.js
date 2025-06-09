@@ -9,7 +9,8 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
     brand: '',
     type: '',
     model: '',
-    customerId: ''
+    department: '',
+    workerName: ''
   });
 
   useEffect(() => {
@@ -19,10 +20,18 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
         brand: selectedOperation.product.brand || '',
         type: selectedOperation.product.type || '',
         model: selectedOperation.product.model || '',
-        customerId: selectedOperation.customerId || ''
+        department: selectedOperation.department || '',
+        workerName: selectedOperation.workerName || ''
       });
     } else {
-      setVehicle({ plate: '', brand: '', type: '', model: '', customerId: '' });
+      setVehicle({
+        plate: '',
+        brand: '',
+        type: '',
+        model: '',
+        department: '',
+        workerName: ''
+      });
     }
   }, [selectedOperation]);
 
@@ -39,7 +48,14 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
         await api.post('/Product', vehicle);
       }
 
-      setVehicle({ plate: '', brand: '', type: '', model: '', customerId: '' });
+      setVehicle({
+        plate: '',
+        brand: '',
+        type: '',
+        model: '',
+        department: '',
+        workerName: ''
+      });
       setSelectedOperation(null);
       refreshList(page);
     } catch (err) {
@@ -49,11 +65,17 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
   };
 
   const handleClear = () => {
-    setVehicle({ plate: '', brand: '', type: '', model: '', customerId: '' });
+    setVehicle({
+      plate: '',
+      brand: '',
+      type: '',
+      model: '',
+      department: '',
+      workerName: ''
+    });
     setSelectedOperation(null);
   };
 
-  // ✅ Stiller
   const inputStyle = {
     width: '100%',
     padding: '8px',
@@ -90,14 +112,32 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
         <label style={labelStyle}>Marka:</label>
         <input name="brand" value={vehicle.brand} onChange={handleChange} style={inputStyle} />
 
-        <label style={labelStyle}>Tür:</label>
-        <input name="type" value={vehicle.type} onChange={handleChange} style={inputStyle} />
-
         <label style={labelStyle}>Model:</label>
         <input name="model" value={vehicle.model} onChange={handleChange} style={inputStyle} />
 
-        <label style={labelStyle}>Müşteri ID:</label>
-        <input name="customerId" value={vehicle.customerId} onChange={handleChange} style={inputStyle} />
+        <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+          <div style={{ flex: 1 }}>
+            <label style={labelStyle}>Departman:</label>
+            <select name="department" value={vehicle.department} onChange={handleChange} style={inputStyle}>
+              <option value="">Departman Seç</option>
+              <option value="Servis">Servis</option>
+              <option value="Dükkan">Dükkan</option>
+              <option value="Depo">Depo</option>
+            </select>
+          </div>
+          <div style={{ flex: 1 }}>
+            <label style={labelStyle}>Çalışan:</label>
+            <select name="workerName" value={vehicle.workerName} onChange={handleChange} style={inputStyle}>
+              <option value="">Çalışan Seç</option>
+              <option value="Ahmet Kaya">Ahmet Kaya</option>
+              <option value="Mehmet Yıldız">Mehmet Yıldız</option>
+              <option value="Zeynep Acar">Zeynep Acar</option>
+            </select>
+          </div>
+        </div>
+
+        <label style={labelStyle}>Tür:</label>
+        <input name="type" value={vehicle.type} onChange={handleChange} style={inputStyle} />
       </div>
 
       <div style={{ display: 'flex', gap: '10px', justifyContent: 'start' }}>

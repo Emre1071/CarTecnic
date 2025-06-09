@@ -10,25 +10,19 @@ import ComplaintDetail from './components/ComplaintDetail';
 import api from './services/api';
 
 function App() {
-  const [searchText, setSearchText] = useState('');
   const [selectedOperation, setSelectedOperation] = useState(null);
-  const [page, setPage] = useState(1);
-  const [refreshFlag, setRefreshFlag] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
-  const [showPopup, setShowPopup] = useState(false);
   const [filteredCustomers, setFilteredCustomers] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
   const refreshList = () => {
-    setRefreshFlag(!refreshFlag);
+    // Burada başka işlemler yapılacaksa bırakılabilir
   };
 
-  // 🔒 useCallback ile fonksiyonu sabitle
   const handleSearch = useCallback(async (text) => {
     try {
       const res = await api.get(`/Transaction/search?q=${text}`);
       setSearchResults(res.data);
-      setShowPopup(true);
     } catch (err) {
       console.error('Arama hatası:', err);
     }
@@ -37,36 +31,31 @@ function App() {
   const handleCustomerSelect = async (customerId) => {
     try {
       const res = await api.get(`/Customer/filter-by-customer/${customerId}`);
-      setFilteredCustomers(res.data); // 🔁 CustomerList'e props olarak geç!
+      setFilteredCustomers(res.data);
     } catch (err) {
       console.error("Müşteri filtreleme hatası:", err);
     }
   };
 
-
-
   return (
     <div className="App">
-      {/* 🔍 Arama Alanı */}
       <div className="top-section">
         <SearchBar
           onSearch={handleSearch}
           searchResults={searchResults}
           setSearchResults={setSearchResults}
-          setShowPopup={setShowPopup}
+          setShowPopup={() => {}} // Eğer kullanılmıyorsa boş fonksiyonla geçilir
           onCustomerSelect={(id) => {
-            setSearchQuery(''); // 🔁 Sayfalı aramayı sıfırla
+            setSearchQuery('');
             handleCustomerSelect(id);
           }}
           onEnterSearch={(query) => {
-            setSearchQuery(query);          // sayfalı arama başlat
-            setFilteredCustomers([]);      // eski veriyi sil
+            setSearchQuery(query);
+            setFilteredCustomers([]);
           }}
         />
-
       </div>
 
-      {/* 📄 Ana İçerik */}
       <div className="layout-container">
         <div className="left-section">
           <CustomerList
@@ -74,6 +63,7 @@ function App() {
             filteredCustomers={filteredCustomers}
             setFilteredCustomers={setFilteredCustomers}
             searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
           />
         </div>
 
@@ -82,7 +72,7 @@ function App() {
             <CustomerDetail
               selectedOperation={selectedOperation}
               setSelectedOperation={setSelectedOperation}
-              page={page}
+              page={1}
               refreshList={refreshList}
             />
           </div>
@@ -90,7 +80,7 @@ function App() {
             <VehicleDetail
               selectedOperation={selectedOperation}
               setSelectedOperation={setSelectedOperation}
-              page={page}
+              page={1}
               refreshList={refreshList}
             />
           </div>
@@ -98,7 +88,7 @@ function App() {
             <FinancialDetail
               selectedOperation={selectedOperation}
               setSelectedOperation={setSelectedOperation}
-              page={page}
+              page={1}
               refreshList={refreshList}
             />
           </div>
@@ -106,7 +96,7 @@ function App() {
             <ComplaintDetail
               selectedOperation={selectedOperation}
               setSelectedOperation={setSelectedOperation}
-              page={page}
+              page={1}
               refreshList={refreshList}
             />
           </div>

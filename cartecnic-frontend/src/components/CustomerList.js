@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import api from '../services/api';
-
-const pageSize = 20; // Sayfa başına gösterilecek kayıt
 
 const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFilteredCustomers, searchQuery, setSearchQuery }) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -9,11 +7,7 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
   const [selectedBranch, setSelectedBranch] = useState('');
   const [selectedFormNo, setSelectedFormNo] = useState(null);
 
-  useEffect(() => {
-    fetchCustomers(); // her aramada ve sayfa değişiminde çalışsın
-  }, [currentPage, searchQuery]);
-
-  const fetchCustomers = async () => {
+  const fetchCustomers = useCallback(async () => {
     try {
       const url = `/Transaction/pagedSearch?q=${encodeURIComponent(searchQuery)}&page=${currentPage}`;
       const res = await api.get(url);
@@ -21,48 +15,24 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
     } catch (err) {
       console.error('Veri alınamadı:', err);
     }
-  };
+  }, [currentPage, searchQuery, setFilteredCustomers]);
 
-
+  useEffect(() => {
+    fetchCustomers();
+  }, [fetchCustomers]);
 
   const clearFilters = () => {
     setSelectedStatus('');
     setSelectedBranch('');
-    setSearchQuery(''); // ✅ arama temizlensin
+    setSearchQuery('');
     setFilteredCustomers([]);
-    setCurrentPage(1); // başa dön
-  };
-  const paginatedData = filteredCustomers; // Zaten sayfalı geliyor
-
-  const nextPage = () => {
-    setCurrentPage(currentPage + 1); // Backend sayfalama yapıyor, kontrol orada
-  };
-
-
-  const prevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  };
-
-  const thStyle = {
-    padding: '8px',
-    border: '1px solid #ddd',
-    textAlign: 'left',
-    backgroundColor: '#4CAF50',
-    color: 'white'
-  };
-
-  const tdStyle = {
-    padding: '8px',
-    border: '1px solid #ddd',
+    setCurrentPage(1);
   };
 
   const handleSelectTransaction = async (formNo) => {
     try {
-      setSelectedFormNo(formNo); // Seçili satırı güncelle
+      setSelectedFormNo(formNo);
       const res = await api.get(`/Transaction/${formNo}`);
-      // API'den gelen veriyi tablolara uygun formata dönüştür
       const formattedData = {
         customer: {
           name: res.data.ad,
@@ -96,10 +66,7 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
-
-      {/* LİSTE KUTUSU */}
       <div style={{ border: '1px solid #ccc', padding: '15px', borderRadius: '6px', flex: '1 0 auto', overflow: 'hidden' }}>
-        {/* TABLO */}
         <table width="100%" style={{ borderCollapse: 'collapse' }}>
           <thead>
             <tr>
@@ -112,7 +79,7 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
             </tr>
           </thead>
           <tbody>
-            {paginatedData.map((c, index) => (
+            {filteredCustomers.map((c, index) => (
               <tr
                 key={c.formNo || index}
                 onClick={() => handleSelectTransaction(c.formNo)}
@@ -134,56 +101,26 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
         </table>
       </div>
 
-      {/* SAYFA & FİLTRE BUTONLARI */}
       <div style={{ marginTop: '20px', paddingBottom: '10px' }}>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
-          <button onClick={prevPage} style={{ backgroundColor: 'green', color: 'white', border: 'none', padding: '6px 14px', borderRadius: '4px' }}>
-            ◀
-          </button>
+          <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>◀</button>
           <div style={{ backgroundColor: '#4CAF50', color: 'white', padding: '6px 16px', borderRadius: '4px', fontWeight: 'bold' }}>
             Sayfa: {currentPage}
           </div>
-          <button onClick={nextPage} style={{ backgroundColor: 'green', color: 'white', border: 'none', padding: '6px 14px', borderRadius: '4px' }}>
-            ▶
-          </button>
+          <button onClick={() => setCurrentPage(currentPage + 1)}>▶</button>
         </div>
 
-        <div style={{
-          marginTop: '15px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <select
-            value={selectedStatus}
-            onChange={(e) => setSelectedStatus(e.target.value)}
-            style={{ padding: '6px', borderRadius: '4px', border: '1px solid #ccc', width: '150px' }}
-          >
+        <div style={{ marginTop: '15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
             <option value="">Durum Seç</option>
             <option value="Başlamadı">Başlamadı</option>
             <option value="Devam Ediyor">Devam Ediyor</option>
             <option value="Tamamlandı">Tamamlandı</option>
           </select>
 
-          <button
-            onClick={clearFilters}
-            style={{
-              backgroundColor: 'green',
-              color: 'white',
-              border: 'none',
-              padding: '6px 14px',
-              borderRadius: '4px',
-              width: '150px'
-            }}
-          >
-            Filtreyi Temizle
-          </button>
+          <button onClick={clearFilters}>Filtreyi Temizle</button>
 
-          <select
-            value={selectedBranch}
-            onChange={(e) => setSelectedBranch(e.target.value)}
-            style={{ padding: '6px', borderRadius: '4px', border: '1px solid #ccc', width: '150px' }}
-          >
+          <select value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)}>
             <option value="">Şube Seç</option>
             <option value="Dükkan">Dükkan</option>
             <option value="Servis">Servis</option>
@@ -192,6 +129,19 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
       </div>
     </div>
   );
+};
+
+const thStyle = {
+  padding: '8px',
+  border: '1px solid #ddd',
+  textAlign: 'left',
+  backgroundColor: '#4CAF50',
+  color: 'white'
+};
+
+const tdStyle = {
+  padding: '8px',
+  border: '1px solid #ddd',
 };
 
 export default CustomerList;
