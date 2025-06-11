@@ -5158,19 +5158,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Emre\\.nuget\\packages\\": {}
+    "C:\\Users\\Ali Emirhan\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. sınıf\\3. Sınıf 2. Dönem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\CarTecnicBackent.csproj",
+      "projectUniqueName": "C:\\Users\\Ali Emirhan\\Documents\\GitHub\\CarTecnic\\CarTecnicBackent\\CarTecnicBackent.csproj",
       "projectName": "CarTecnicBackent",
-      "projectPath": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. sınıf\\3. Sınıf 2. Dönem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\CarTecnicBackent.csproj",
-      "packagesPath": "C:\\Users\\Emre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. sınıf\\3. Sınıf 2. Dönem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\obj\\",
+      "projectPath": "C:\\Users\\Ali Emirhan\\Documents\\GitHub\\CarTecnic\\CarTecnicBackent\\CarTecnicBackent.csproj",
+      "packagesPath": "C:\\Users\\Ali Emirhan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ali Emirhan\\Documents\\GitHub\\CarTecnic\\CarTecnicBackent\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Emre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ali Emirhan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5178,7 +5178,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

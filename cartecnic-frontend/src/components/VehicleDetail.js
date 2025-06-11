@@ -57,13 +57,19 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
   };
 
   const handleClear = () => {
-    setVehicle({
-      plate: '',
-      brand: '',
-      type: '',
-      model: ''
+    setSelectedOperation(prev => {
+      if (!prev) return null;
+      return {
+        ...prev,
+        product: { plate: '', brand: '', type: '', model: '' },
+        status: '',
+        fault: '',
+        result: '',
+        price: 0,
+        department: '',
+        workerName: ''
+      };
     });
-    setSelectedOperation(null);
   };
 
   const inputStyle = {

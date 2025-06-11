@@ -12,7 +12,6 @@ const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refresh
     mail: ''
   });
 
-
   useEffect(() => {
     if (selectedOperation && selectedOperation.customer) {
       setCustomer({
@@ -54,7 +53,6 @@ const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refresh
     setSelectedOperation(null);
   };
 
-  // ✅ Stiller
   const inputStyle = {
     width: '100%',
     padding: '8px',
@@ -73,13 +71,12 @@ const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refresh
   };
 
   const buttonStyle = {
-  backgroundColor: 'green',
-  border: 'none',
-  padding: '6px 8px',      // 🔁 Daha ince ve dar
-  borderRadius: '4px',
-  cursor: 'pointer'
+    backgroundColor: 'green',
+    border: 'none',
+    padding: '6px 8px',
+    borderRadius: '4px',
+    cursor: 'pointer'
   };
-
 
   return (
     <div className="box" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
@@ -104,12 +101,11 @@ const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refresh
 
       <div style={{ display: 'flex', gap: '10px', justifyContent: 'start' }}>
         <button onClick={handleClear} style={buttonStyle}>
-            <FaPlus size={14} color="white" />
-          </button>
-          <button onClick={handleSave} style={buttonStyle}>
+          <FaPlus size={14} color="white" />
+        </button>
+        <button onClick={handleSave} style={buttonStyle}>
           <MdSave size={16} color="white" />
         </button>
-
       </div>
     </div>
   );

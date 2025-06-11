@@ -23,11 +23,12 @@ function SearchBar({ onSearch, onCustomerSelect, searchResults, setSearchResults
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         setShowPopup(false);
+        setSearchResults([]); // ✅ eklenen satır
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [setShowPopup]);
+  }, [setShowPopup, setSearchResults]);
 
   return (
     <div className="search-container">
@@ -40,11 +41,12 @@ function SearchBar({ onSearch, onCustomerSelect, searchResults, setSearchResults
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === 'Enter' && query.length >= 2) {
-              onSearch(query);           // popup arama
-              setShowPopup(false);       // popup kapanır
-              setSearchResults([]);      // popup sonuçları temizlenir
+              onSearch(query);
+              setShowPopup(false);
+              setSearchResults([]);
+              setQuery(''); // ✅ inputu temizle
               if (typeof onEnterSearch === 'function') {
-                onEnterSearch(query);    // CustomerList'te sayfalı arama
+                onEnterSearch(query);
               }
             }
           }}
@@ -67,7 +69,7 @@ function SearchBar({ onSearch, onCustomerSelect, searchResults, setSearchResults
                 setQuery('');
                 setShowPopup(false);
                 setSearchResults([]);
-                onCustomerSelect(result.customerId); // ✅ Müşteri ID gönder
+                onCustomerSelect(result.customerId);
               }}
             >
               <strong>#{result.transactionId}</strong> - {result.ad} {result.soyad} | 📞 {result.telefon} | 🚗 {result.plaka}

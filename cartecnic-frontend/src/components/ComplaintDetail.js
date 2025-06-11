@@ -7,9 +7,9 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
   const [complaint, setComplaint] = useState({
     status: '',
     branch: '',
-    fault: '',
+    problem: '',
     result: '',
-    processCost: 0,
+    price: 0,
     department: '',
     workerName: ''
   });
@@ -23,14 +23,22 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
       setComplaint({
         status: selectedOperation.status || '',
         branch: selectedOperation.branch || '',
-        fault: selectedOperation.fault || '',
+        problem: selectedOperation.problem || '',
         result: selectedOperation.result || '',
-        processCost: selectedOperation.processCost || 0,
+        price: selectedOperation.price || 0,
         department: selectedOperation.department || '',
         workerName: selectedOperation.workerName || ''
       });
     } else {
-      setComplaint({ status: '', branch: '', fault: '', result: '', processCost: 0, department: '', workerName: '' });
+      setComplaint({
+        status: '',
+        branch: '',
+        problem: '',
+        result: '',
+        price: 0,
+        department: '',
+        workerName: ''
+      });
     }
   }, [selectedOperation]);
 
@@ -42,13 +50,30 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
   const handleSave = async () => {
     try {
       if (selectedOperation) {
-        await api.put(`/Operation/${selectedOperation.operationId}`, { ...selectedOperation, ...complaint });
+        await api.put(`/Operation/${selectedOperation.operationId}`, {
+          ...selectedOperation,
+          status: complaint.status,
+          branch: complaint.branch,
+          problem: complaint.problem,
+          result: complaint.result,
+          price: complaint.price,
+          department: complaint.department,
+          workerName: complaint.workerName
+        });
       } else {
         alert('Lütfen önce müşteri ve ürün seçin.');
         return;
       }
 
-      setComplaint({ status: '', branch: '', fault: '', result: '', processCost: 0, department: '', workerName: '' });
+      setComplaint({
+        status: '',
+        branch: '',
+        problem: '',
+        result: '',
+        price: 0,
+        department: '',
+        workerName: ''
+      });
       setSelectedOperation(null);
       refreshList(page);
     } catch (err) {
@@ -58,8 +83,23 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
   };
 
   const handleClear = () => {
-    setComplaint({ status: '', branch: '', fault: '', result: '', processCost: 0, department: '', workerName: '' });
-    setSelectedOperation(null);
+    setComplaint({
+      status: '',
+      branch: '',
+      problem: '',
+      result: '',
+      price: 0,
+      department: '',
+      workerName: ''
+    });
+    setSelectedOperation(prev => ({
+      ...prev,
+      problem: '',
+      result: '',
+      price: 0,
+      department: '',
+      workerName: ''
+    }));
   };
 
   const inputStyle = {
@@ -133,13 +173,13 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
         </div>
 
         <label style={labelStyle}>Arıza Açıklaması:</label>
-        <input type="text" name="fault" value={complaint.fault} onChange={handleChange} style={inputStyle} />
+        <input type="text" name="problem" value={complaint.problem} onChange={handleChange} style={inputStyle} />
 
         <label style={labelStyle}>Sonuç:</label>
         <input type="text" name="result" value={complaint.result} onChange={handleChange} style={inputStyle} />
 
         <label style={labelStyle}>Ücret (TL):</label>
-        <input type="number" name="processCost" value={complaint.processCost} onChange={handleChange} style={inputStyle} />
+        <input type="number" name="price" value={complaint.price} onChange={handleChange} style={inputStyle} />
       </div>
 
       <div style={{ display: 'flex', gap: '10px', justifyContent: 'start' }}>

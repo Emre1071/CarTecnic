@@ -22,12 +22,17 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
   }, [fetchCustomers]);
 
   const clearFilters = () => {
-    setSelectedStatus('');
-    setSelectedBranch('');
+  if (searchQuery.trim() !== '') {
+    // 🔁 sadece arama yapılmışsa veriyi geri getir
     setSearchQuery('');
     setFilteredCustomers([]);
     setCurrentPage(1);
-  };
+  }
+
+  setSelectedStatus('');
+  setSelectedBranch('');
+};
+
 
   const handleSelectTransaction = async (formNo) => {
     try {
@@ -49,9 +54,9 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
           model: res.data.model
         },
         status: res.data.status,
-        problem: res.data.problem,
-        result: res.data.result,
-        price: res.data.price,
+        problem: res.data.problem,             // ✅ Arıza Açıklaması
+        result: res.data.result,            // ✅ Sonuç
+        price: res.data.price,        // ✅ Ücret (TL)
         department: res.data.department,
         workerName: res.data.workerName,
         customerId: res.data.customerId,
