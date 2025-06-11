@@ -29,7 +29,7 @@ http://localhost:5163/swagger
 
 
 
-
+- durumlara renk ekle
 
 
 

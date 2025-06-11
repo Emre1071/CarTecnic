@@ -39,58 +39,31 @@ namespace CarTecnicBackend.Controllers
             return financial;
         }
 
-        // 🔹 Yeni finansal kayıt oluştur
-        [HttpPost]
-        public async Task<ActionResult<Financial>> Create(Financial financial)
+        // 🔸 Yeni ödeme ekle
+        [HttpPost("add-payment")]
+        public async Task<IActionResult> AddPayment([FromBody] CustomerPayment payment)
         {
-            // 🧠 Kalan borcu otomatik hesapla
-            financial.RemainingDebt = financial.Debt - financial.TotalPayments;
+            // 🧾 Geçerli müşteri kontrolü
+            var customerExists = await _context.Customers.AnyAsync(c => c.CustomerId == payment.CustomerId);
+            if (!customerExists)
+                return NotFound("Belirtilen müşteri bulunamadı.");
 
-            _context.Financials.Add(financial);
+            // 🕒 Ödeme tarihini şu an olarak ata
+            payment.PaymentDate = DateTime.Now;
+
+            _context.Add(payment);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetByCustomerId), new { customerId = financial.CustomerId }, financial);
-        }
-
-        // 🔹 Kayıt güncelle (örneğin ödeme yapıldı)
-        [HttpPut("{customerId}")]
-        public async Task<IActionResult> Update(int customerId, Financial financial)
-        {
-            if (customerId != financial.CustomerId)
-                return BadRequest();
-
-            // 🧠 Kalan borcu güncelle
-            financial.RemainingDebt = financial.Debt - financial.TotalPayments;
-
-            _context.Entry(financial).State = EntityState.Modified;
-
-            try
+            return Ok(new
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Financials.Any(f => f.CustomerId == customerId))
-                    return NotFound();
-
-                throw;
-            }
-
-            return NoContent();
+                message = "✅ Ödeme başarıyla kaydedildi.",
+                paymentId = payment.PaymentId,
+                date = payment.PaymentDate
+            });
         }
 
-        // 🔹 Finansal kayıt sil
-        [HttpDelete("{customerId}")]
-        public async Task<IActionResult> Delete(int customerId)
-        {
-            var record = await _context.Financials.FindAsync(customerId);
-            if (record == null)
-                return NotFound();
 
-            _context.Financials.Remove(record);
-            await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+
     }
 }

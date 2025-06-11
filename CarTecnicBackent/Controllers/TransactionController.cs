@@ -117,7 +117,11 @@ namespace CarTecnicBackend.Controllers
 
         // 🔍 Sayfa numarasına göre 20'şerli işlem verisi getir
         [HttpGet("pagedSearch")]
-        public async Task<ActionResult<IEnumerable<object>>> GetPagedFilteredTransactions([FromQuery] string? q = "", [FromQuery] int page = 1)
+        public async Task<ActionResult<IEnumerable<object>>> GetPagedFilteredTransactions(
+     [FromQuery] string? q = "",
+     [FromQuery] int page = 1,
+     [FromQuery] string? status = null,
+     [FromQuery] string? department = null)
         {
             const int pageSize = 20;
 
@@ -126,6 +130,7 @@ namespace CarTecnicBackend.Controllers
                 .Include(t => t.Vehicle)
                 .AsQueryable();
 
+            // 🔎 Arama kelimesi
             if (!string.IsNullOrWhiteSpace(q) && q.Trim().Length >= 2)
             {
                 var keywords = q.ToLower().Trim().Split(" ", StringSplitOptions.RemoveEmptyEntries);
@@ -153,6 +158,14 @@ namespace CarTecnicBackend.Controllers
                     );
                 }
             }
+
+            // 🔁 Şikayet Durumu filtresi
+            if (!string.IsNullOrWhiteSpace(status))
+                query = query.Where(t => t.Status.ToLower() == status.ToLower());
+
+            // 🏢 Şube filtresi
+            if (!string.IsNullOrWhiteSpace(department))
+                query = query.Where(t => t.Department.ToLower() == department.ToLower());
 
             var paged = await query
                 .OrderByDescending(t => t.TransactionId)

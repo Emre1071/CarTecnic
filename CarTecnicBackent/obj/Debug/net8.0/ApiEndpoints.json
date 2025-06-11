@@ -182,32 +182,6 @@
   },
   {
     "ContainingType": "CarTecnicBackend.Controllers.FinancialController",
-    "Method": "Create",
-    "RelativePath": "api/Financial",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "financial",
-        "Type": "CarTecnicBackend.Models.Financial",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "CarTecnicBackend.Models.Financial",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "CarTecnicBackend.Controllers.FinancialController",
     "Method": "GetByCustomerId",
     "RelativePath": "api/Financial/{customerId}",
     "HttpMethod": "GET",
@@ -234,36 +208,15 @@
   },
   {
     "ContainingType": "CarTecnicBackend.Controllers.FinancialController",
-    "Method": "Update",
-    "RelativePath": "api/Financial/{customerId}",
-    "HttpMethod": "PUT",
+    "Method": "AddPayment",
+    "RelativePath": "api/Financial/add-payment",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "customerId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "financial",
-        "Type": "CarTecnicBackend.Models.Financial",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "CarTecnicBackend.Controllers.FinancialController",
-    "Method": "Delete",
-    "RelativePath": "api/Financial/{customerId}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "customerId",
-        "Type": "System.Int32",
+        "Name": "payment",
+        "Type": "CarTecnicBackend.Models.CustomerPayment",
         "IsRequired": true
       }
     ],
@@ -384,6 +337,16 @@
       {
         "Name": "page",
         "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "department",
+        "Type": "System.String",
         "IsRequired": false
       }
     ],

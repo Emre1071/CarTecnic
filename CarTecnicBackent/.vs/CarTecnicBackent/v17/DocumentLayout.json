@@ -3,28 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\controllers\\financialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:controllers\\financialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\models\\customerpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:models\\customerpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\migrations\\20250513201509_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:migrations\\20250513201509_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\models\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,6 +27,26 @@
       "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:models\\financial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:models\\worker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\migrations\\20250513201509_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:migrations\\20250513201509_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -43,20 +55,12 @@
       "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:controllers\\transactioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|c:\\users\\emre\\desktop\\my programs\\writer and academy\\dersler\\3. s\u0131n\u0131f\\3. s\u0131n\u0131f 2. d\u00F6nem\\software architecture\\projegithub\\cartecnic\\cartecnicbackent\\controllers\\financialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B57A9B3-91DC-4281-A6ED-5521F56B410C}|CarTecnicBackent.csproj|solutionrelative:controllers\\financialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,24 +70,47 @@
       "DocumentGroups": [
         {
           "DockedHeight": 271,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Transaction.cs",
-              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Transaction.cs",
-              "RelativeDocumentMoniker": "Models\\Transaction.cs",
-              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Transaction.cs",
-              "RelativeToolTip": "Models\\Transaction.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAzwB0AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "CustomerPayment.cs",
+              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\CustomerPayment.cs",
+              "RelativeDocumentMoniker": "Models\\CustomerPayment.cs",
+              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\CustomerPayment.cs",
+              "RelativeToolTip": "Models\\CustomerPayment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:53:32.947Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-11T08:31:05.99Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Customer.cs",
+              "RelativeDocumentMoniker": "Models\\Customer.cs",
+              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Customer.cs",
+              "RelativeToolTip": "Models\\Customer.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T19:53:08.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TransactionController.cs",
+              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\TransactionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TransactionController.cs",
+              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\TransactionController.cs",
+              "RelativeToolTip": "Controllers\\TransactionController.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAowHEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T20:37:56.312Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "Vehicle.cs",
               "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Vehicle.cs",
               "RelativeDocumentMoniker": "Models\\Vehicle.cs",
@@ -91,77 +118,60 @@
               "RelativeToolTip": "Models\\Vehicle.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:53:22.303Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T19:53:22.303Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Worker.cs",
-              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Worker.cs",
-              "RelativeDocumentMoniker": "Models\\Worker.cs",
-              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Worker.cs",
-              "RelativeToolTip": "Models\\Worker.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Transaction.cs",
+              "RelativeDocumentMoniker": "Models\\Transaction.cs",
+              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Transaction.cs",
+              "RelativeToolTip": "Models\\Transaction.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA1wB8AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:54:01.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T19:53:32.947Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
               "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Data\\AppDbContext.cs",
               "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAwwDkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAADwv0IAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T20:11:46.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T20:11:46.28Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-13T19:50:09.104Z",
+              "DocumentIndex": 0,
+              "Title": "FinancialController.cs",
+              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\FinancialController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FinancialController.cs",
+              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\FinancialController.cs",
+              "RelativeToolTip": "Controllers\\FinancialController.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAmwEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T20:38:58.363Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "Financial.cs",
-              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Financial.cs",
-              "RelativeDocumentMoniker": "Models\\Financial.cs",
-              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Financial.cs",
-              "RelativeToolTip": "Models\\Financial.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
+              "Title": "VehicleController.cs",
+              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\VehicleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VehicleController.cs",
+              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\VehicleController.cs",
+              "RelativeToolTip": "Controllers\\VehicleController.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwCQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:53:47.499Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T20:37:17.564Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Customer.cs",
-              "RelativeDocumentMoniker": "Models\\Customer.cs",
-              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Customer.cs",
-              "RelativeToolTip": "Models\\Customer.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBcAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T19:53:08.416Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "20250513201509_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Migrations\\20250513201509_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20250513201509_InitialCreate.cs",
@@ -169,25 +179,47 @@
               "RelativeToolTip": "Migrations\\20250513201509_InitialCreate.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAQwBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T20:15:09.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T20:15:09.162Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "VehicleController.cs",
-              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\VehicleController.cs",
-              "RelativeDocumentMoniker": "Controllers\\VehicleController.cs",
-              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\VehicleController.cs",
-              "RelativeToolTip": "Controllers\\VehicleController.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAA1wC8AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "Financial.cs",
+              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Financial.cs",
+              "RelativeDocumentMoniker": "Models\\Financial.cs",
+              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Financial.cs",
+              "RelativeToolTip": "Models\\Financial.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T20:37:17.564Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T19:53:47.499Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
+              "Title": "Worker.cs",
+              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Worker.cs",
+              "RelativeDocumentMoniker": "Models\\Worker.cs",
+              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Models\\Worker.cs",
+              "RelativeToolTip": "Models\\Worker.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-13T19:54:01.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-13T19:50:09.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "Properties\\launchSettings.json",
@@ -195,25 +227,11 @@
               "RelativeToolTip": "Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-05-14T00:30:45.814Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-14T00:30:45.814Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TransactionController.cs",
-              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\TransactionController.cs",
-              "RelativeDocumentMoniker": "Controllers\\TransactionController.cs",
-              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\TransactionController.cs",
-              "RelativeToolTip": "Controllers\\TransactionController.cs",
-              "ViewState": "AgIAAOAAAAAAAAAAAAAmwPkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T20:37:56.312Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "CustomerController.cs",
               "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\CustomerController.cs",
               "RelativeDocumentMoniker": "Controllers\\CustomerController.cs",
@@ -221,12 +239,11 @@
               "RelativeToolTip": "Controllers\\CustomerController.cs",
               "ViewState": "AgIAAGAAAAAAAAAAAAAUwHwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T20:36:33.265Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T20:36:33.265Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -235,18 +252,6 @@
               "ViewState": "AgIAAAgAAAAAAAAAAAAcwB4AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-13T20:13:54.007Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "FinancialController.cs",
-              "DocumentMoniker": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\FinancialController.cs",
-              "RelativeDocumentMoniker": "Controllers\\FinancialController.cs",
-              "ToolTip": "C:\\Users\\Emre\\Desktop\\My programs\\writer and academy\\Dersler\\3. s\u0131n\u0131f\\3. S\u0131n\u0131f 2. D\u00F6nem\\SOFTWARE ARCHITECTURE\\ProjeGithub\\CarTecnic\\CarTecnicBackent\\Controllers\\FinancialController.cs",
-              "RelativeToolTip": "Controllers\\FinancialController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T20:38:58.363Z"
             }
           ]
         },

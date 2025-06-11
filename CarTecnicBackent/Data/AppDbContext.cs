@@ -15,6 +15,8 @@ namespace CarTecnicBackend.Data
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Financial> Financials { get; set; }
         public DbSet<Worker> Workers { get; set; }
+        public DbSet<CustomerPayment> CustomerPayments { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -52,6 +54,17 @@ namespace CarTecnicBackend.Data
                 .WithMany(c => c.Transactions)
                 .HasForeignKey(t => t.CustomerId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+
+            // Customer ↔ CustomerPayment (bire-çok)
+            modelBuilder.Entity<CustomerPayment>()
+                .HasOne(p => p.Customer)
+                .WithMany(c => c.CustomerPayments)
+                .HasForeignKey(p => p.CustomerId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+
+
         }
     }
 }

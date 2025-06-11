@@ -8,6 +8,7 @@ namespace CarTecnicBackend.Models
         [Key]
         [ForeignKey("Customer")] // Müşteri ile birebir bağlantı
         public int CustomerId { get; set; }
+
         public Customer Customer { get; set; } = null!;
 
         [Column(TypeName = "decimal(10,2)")]
@@ -18,11 +19,5 @@ namespace CarTecnicBackend.Models
 
         [Column(TypeName = "decimal(10,2)")]
         public decimal RemainingDebt { get; set; }
-
-        [MaxLength(50)]
-        public string PaymentType { get; set; } = "Nakit";
-
-        [Column(TypeName = "decimal(10,2)")]
-        public decimal PaymentAmount { get; set; }
     }
 }
