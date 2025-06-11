@@ -63,6 +63,52 @@ namespace CarTecnicBackend.Controllers
         }
 
 
+        [HttpGet("summary/{customerId}")]
+        public async Task<IActionResult> GetFinancialSummary(int customerId)
+        {
+            // 🟠 Toplam Borç = Customer'ın tüm işlemlerindeki Price toplamı
+            var totalDebt = await _context.Transactions
+                .Where(t => t.CustomerId == customerId)
+                .SumAsync(t => t.Price ?? 0);
+
+            // 🟢 Toplam Ödeme = Bu müşterinin yaptığı tüm ödemelerin toplamı
+            var totalPaid = await _context.Set<CustomerPayment>()
+                .Where(p => p.CustomerId == customerId)
+                .SumAsync(p => p.PaymentAmount);
+
+            // 🔵 Kalan Borç = Borç - Ödeme
+            var remaining = totalDebt - totalPaid;
+
+            return Ok(new
+            {
+                totalDebt = totalDebt.ToString("0.00"),
+                totalPaid = totalPaid.ToString("0.00"),
+                remaining = remaining.ToString("0.00")
+            });
+        }
+
+
+
+        // 🔹 Müşteriye ait tüm ödeme kayıtlarını getir
+        [HttpGet("payments/{customerId}")]
+        public async Task<IActionResult> GetCustomerPayments(int customerId)
+        {
+            var payments = await _context.CustomerPayments
+                .Where(p => p.CustomerId == customerId)
+                .OrderByDescending(p => p.PaymentDate)
+                .Select(p => new
+                {
+                    p.PaymentAmount,
+                    p.PaymentType,
+                    PaymentDate = p.PaymentDate.ToString("yyyy-MM-dd HH:mm:ss")
+                })
+                .ToListAsync();
+
+            return Ok(payments);
+        }
+
+
+
 
 
     }

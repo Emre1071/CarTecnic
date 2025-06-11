@@ -223,6 +223,38 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CarTecnicBackend.Controllers.FinancialController",
+    "Method": "GetCustomerPayments",
+    "RelativePath": "api/Financial/payments/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CarTecnicBackend.Controllers.FinancialController",
+    "Method": "GetFinancialSummary",
+    "RelativePath": "api/Financial/summary/{customerId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "customerId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CarTecnicBackend.Controllers.TransactionController",
     "Method": "GetTransactions",
     "RelativePath": "api/Transaction",

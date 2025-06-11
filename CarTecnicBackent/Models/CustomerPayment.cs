@@ -12,7 +12,8 @@ namespace CarTecnicBackend.Models
         [Required]
         public int CustomerId { get; set; }
 
-        public Customer Customer { get; set; } = null!;
+        public Customer? Customer { get; set; }
+
 
         // 💸 Ödeme miktarı
         [Column(TypeName = "decimal(10,2)")]

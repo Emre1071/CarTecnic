@@ -56,12 +56,14 @@ namespace CarTecnicBackend.Data
                 .OnDelete(DeleteBehavior.Cascade);
 
 
-            // Customer ↔ CustomerPayment (bire-çok)
+            // Customer ↔ CustomerPayment (bire-çok, optional navigation)
             modelBuilder.Entity<CustomerPayment>()
                 .HasOne(p => p.Customer)
                 .WithMany(c => c.CustomerPayments)
                 .HasForeignKey(p => p.CustomerId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Cascade)
+                .IsRequired(false); 
+
 
 
 
