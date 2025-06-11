@@ -8,9 +8,7 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
     plate: '',
     brand: '',
     type: '',
-    model: '',
-    department: '',
-    workerName: ''
+    model: ''
   });
 
   useEffect(() => {
@@ -19,18 +17,14 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
         plate: selectedOperation.product.plate || '',
         brand: selectedOperation.product.brand || '',
         type: selectedOperation.product.type || '',
-        model: selectedOperation.product.model || '',
-        department: selectedOperation.department || '',
-        workerName: selectedOperation.workerName || ''
+        model: selectedOperation.product.model || ''
       });
     } else {
       setVehicle({
         plate: '',
         brand: '',
         type: '',
-        model: '',
-        department: '',
-        workerName: ''
+        model: ''
       });
     }
   }, [selectedOperation]);
@@ -52,9 +46,7 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
         plate: '',
         brand: '',
         type: '',
-        model: '',
-        department: '',
-        workerName: ''
+        model: ''
       });
       setSelectedOperation(null);
       refreshList(page);
@@ -69,9 +61,7 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
       plate: '',
       brand: '',
       type: '',
-      model: '',
-      department: '',
-      workerName: ''
+      model: ''
     });
     setSelectedOperation(null);
   };
@@ -114,27 +104,6 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
 
         <label style={labelStyle}>Model:</label>
         <input name="model" value={vehicle.model} onChange={handleChange} style={inputStyle} />
-
-        <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-          <div style={{ flex: 1 }}>
-            <label style={labelStyle}>Departman:</label>
-            <select name="department" value={vehicle.department} onChange={handleChange} style={inputStyle}>
-              <option value="">Departman Seç</option>
-              <option value="Servis">Servis</option>
-              <option value="Dükkan">Dükkan</option>
-              <option value="Depo">Depo</option>
-            </select>
-          </div>
-          <div style={{ flex: 1 }}>
-            <label style={labelStyle}>Çalışan:</label>
-            <select name="workerName" value={vehicle.workerName} onChange={handleChange} style={inputStyle}>
-              <option value="">Çalışan Seç</option>
-              <option value="Ahmet Kaya">Ahmet Kaya</option>
-              <option value="Mehmet Yıldız">Mehmet Yıldız</option>
-              <option value="Zeynep Acar">Zeynep Acar</option>
-            </select>
-          </div>
-        </div>
 
         <label style={labelStyle}>Tür:</label>
         <input name="type" value={vehicle.type} onChange={handleChange} style={inputStyle} />

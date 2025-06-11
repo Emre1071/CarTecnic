@@ -9,10 +9,14 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
     branch: '',
     fault: '',
     result: '',
-    processCost: 0
+    processCost: 0,
+    department: '',
+    workerName: ''
   });
 
   const statusOptions = ['Başlamadı', 'İşlemde', 'İade Edildi', 'Tamamlandı'];
+  const departmentOptions = ['Elektrik', 'Mekanik', 'Boyahane'];
+  const workerOptions = ['Ahmet', 'Mehmet', 'Zeynep', 'Ali'];
 
   useEffect(() => {
     if (selectedOperation) {
@@ -21,10 +25,12 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
         branch: selectedOperation.branch || '',
         fault: selectedOperation.fault || '',
         result: selectedOperation.result || '',
-        processCost: selectedOperation.processCost || 0
+        processCost: selectedOperation.processCost || 0,
+        department: selectedOperation.department || '',
+        workerName: selectedOperation.workerName || ''
       });
     } else {
-      setComplaint({ status: '', branch: '', fault: '', result: '', processCost: 0 });
+      setComplaint({ status: '', branch: '', fault: '', result: '', processCost: 0, department: '', workerName: '' });
     }
   }, [selectedOperation]);
 
@@ -42,7 +48,7 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
         return;
       }
 
-      setComplaint({ status: '', branch: '', fault: '', result: '', processCost: 0 });
+      setComplaint({ status: '', branch: '', fault: '', result: '', processCost: 0, department: '', workerName: '' });
       setSelectedOperation(null);
       refreshList(page);
     } catch (err) {
@@ -52,7 +58,7 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
   };
 
   const handleClear = () => {
-    setComplaint({ status: '', branch: '', fault: '', result: '', processCost: 0 });
+    setComplaint({ status: '', branch: '', fault: '', result: '', processCost: 0, department: '', workerName: '' });
     setSelectedOperation(null);
   };
 
@@ -103,6 +109,25 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
               <option value="Şube 2">Şube 2</option>
               <option value="Şube 3">Şube 3</option>
               <option value="Şube 4">Şube 4</option>
+            </select>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', gap: '10px' }}>
+          <div style={{ flex: 1 }}>
+            <label style={labelStyle}>Departman:</label>
+            <select name="department" value={complaint.department} onChange={handleChange} style={inputStyle}>
+              {departmentOptions.map((opt, idx) => (
+                <option key={idx} value={opt}>{opt}</option>
+              ))}
+            </select>
+          </div>
+          <div style={{ flex: 1 }}>
+            <label style={labelStyle}>Çalışan:</label>
+            <select name="workerName" value={complaint.workerName} onChange={handleChange} style={inputStyle}>
+              {workerOptions.map((opt, idx) => (
+                <option key={idx} value={opt}>{opt}</option>
+              ))}
             </select>
           </div>
         </div>

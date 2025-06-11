@@ -28,46 +28,66 @@ const Login = () => {
     fontWeight: '600',
     marginBottom: '4px',
     display: 'block',
-    fontSize: '14px'
+    fontSize: '14px',
+    color: '#fff'
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: '80px auto', padding: 30, border: '1px solid #ccc', borderRadius: 8 }}>
-      <h2 style={{ textAlign: 'center', color: '#4CAF50' }}>🔐 Admin Girişi</h2>
+    <div
+      style={{
+        minHeight: '100vh',
+        backgroundImage: 'url("/araba-servisi-araba-cekme.jpg")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <div style={{
+        maxWidth: 400,
+        width: '100%',
+        padding: 30,
+        backgroundColor: 'rgba(0,0,0,0.75)',
+        borderRadius: 10
+      }}>
+        <h2 style={{ textAlign: 'center', color: '#4CAF50', marginBottom: 20 }}>🔐 Admin Girişi</h2>
 
-      <label style={labelStyle}>Kullanıcı Adı:</label>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        style={inputStyle}
-      />
+        <label style={labelStyle}>Kullanıcı Adı:</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          style={inputStyle}
+        />
 
-      <label style={labelStyle}>Şifre:</label>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        style={inputStyle}
-      />
+        <label style={labelStyle}>Şifre:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          style={inputStyle}
+        />
 
-      {error && <div style={{ color: 'red', marginBottom: 10 }}>{error}</div>}
+        {error && <div style={{ color: 'red', marginBottom: 10 }}>{error}</div>}
 
-      <button
-        onClick={handleLogin}
-        style={{
-          backgroundColor: 'green',
-          color: 'white',
-          width: '100%',
-          padding: '10px',
-          border: 'none',
-          borderRadius: '4px',
-          fontSize: '15px',
-          fontWeight: 'bold'
-        }}
-      >
-        Giriş Yap
-      </button>
+        <button
+          onClick={handleLogin}
+          style={{
+            backgroundColor: 'green',
+            color: 'white',
+            width: '100%',
+            padding: '10px',
+            border: 'none',
+            borderRadius: '4px',
+            fontSize: '15px',
+            fontWeight: 'bold'
+          }}
+        >
+          Giriş Yap
+        </button>
+      </div>
     </div>
   );
 };

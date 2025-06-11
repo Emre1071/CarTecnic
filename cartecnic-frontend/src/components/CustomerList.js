@@ -111,16 +111,16 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
         </div>
 
         <div style={{ marginTop: '15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)}>
+          <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className="green-select">
             <option value="">Durum Seç</option>
             <option value="Başlamadı">Başlamadı</option>
             <option value="Devam Ediyor">Devam Ediyor</option>
             <option value="Tamamlandı">Tamamlandı</option>
           </select>
 
-          <button onClick={clearFilters}>Filtreyi Temizle</button>
+          <button onClick={clearFilters} className="green-button">Filtreyi Temizle</button>
 
-          <select value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)}>
+          <select value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)} className="green-select">
             <option value="">Şube Seç</option>
             <option value="Dükkan">Dükkan</option>
             <option value="Servis">Servis</option>

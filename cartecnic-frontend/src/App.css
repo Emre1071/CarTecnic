@@ -6,7 +6,6 @@ html, body {
   padding: 0;
 }
 
-/* Ana uygulama kapsayıcı */
 .App {
   font-family: 'Segoe UI', Arial, sans-serif;
   padding: 10px;
@@ -16,17 +15,26 @@ html, body {
   flex-direction: column;
 }
 
-/* Arama çubuğu üst alanı */
 .top-section {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between; /* arama ve ayarlar aynı satırda */
   margin-bottom: 6px;
   padding: 6px 12px;
   background-color: #f4f4f4;
 }
 
-/* Arama input */
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+}
+
 .search-input {
   flex: 1;
   height: 30px;
@@ -34,12 +42,9 @@ html, body {
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 13px;
-  max-width: 360px; /* isteğe göre azalt */
+  max-width: 360px;
 }
 
-
-
-/* Arama butonu */
 .search-button {
   height: 30px;
   padding: 0 12px;
@@ -61,17 +66,15 @@ html, body {
   background-color: #45a049;
 }
 
-/* Sayfanın alt kısmını kapsayan konteyner */
 .layout-container {
   flex: 1;
   display: flex;
   align-items: stretch;
   gap: 15px;
   padding-bottom: 10px;
-  overflow: hidden; /* Taşmayı engelle */
+  overflow: hidden;
 }
 
-/* Sol panel */
 .left-section {
   width: 40%;
   min-width: 500px;
@@ -81,24 +84,22 @@ html, body {
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 110px); /* Sağ tarafla aynı yükseklik */
+  height: calc(100vh - 110px);
   overflow-y: auto;
   box-sizing: border-box;
 }
 
-/* Sağ panel */
 .main-grid {
   flex: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 15px;
-  height: calc(100vh - 110px); /* Arama çubuğu + padding = ~110px */
+  height: calc(100vh - 110px);
   box-sizing: border-box;
   overflow: hidden;
 }
 
-/* Kutular */
 .grid-item {
   background-color: #fff;
   padding: 10px;
@@ -111,7 +112,6 @@ html, body {
   box-sizing: border-box;
 }
 
-/* İç kutu görünüm */
 .box {
   background-color: #fff;
   padding: 15px;
@@ -124,7 +124,6 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Başlıklar */
 h3 {
   background-color: #4CAF50;
   color: white;
@@ -133,8 +132,6 @@ h3 {
   font-size: 16px;
   margin-top: 0;
 }
-
-/* Popup için stiller */
 
 .popup-container {
   position: absolute;
@@ -150,7 +147,6 @@ h3 {
   z-index: 999;
 }
 
-
 .popup-item {
   padding: 8px 10px;
   border-bottom: 1px solid #eee;
@@ -159,11 +155,10 @@ h3 {
   display: flex;
   align-items: center;
   gap: 10px;
-  white-space: nowrap;       /* Satır kırılmasın */
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;   /* Gerekirse üç nokta ile kes */
+  text-overflow: ellipsis;
 }
-
 
 .popup-item:hover {
   background-color: #f0f0f0;
@@ -171,18 +166,6 @@ h3 {
 
 .popup-item:last-child {
   border-bottom: none;
-}
-
-/* Arama sonuçları stilleri */
-.search-container {
-  position: relative;
-  width: 100%;
-}
-
-.search-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .search-results-table {
@@ -208,4 +191,29 @@ h3 {
 
 .search-result-row:last-child {
   border-bottom: none;
+}
+
+/* Temaya uygun yeşil buton */
+.green-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.green-button:hover {
+  background-color: #45a049;
+}
+
+/* Temaya uygun yeşil select */
+.green-select {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  width: 150px;
 }
