@@ -119,19 +119,19 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
 
   return (
     <div className="box" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <h3>Araç Bilgileri</h3>
+      <h3>Vehicle Information</h3>
 
       <div style={{ flexGrow: 1 }}>
-        <label style={labelStyle}>Plaka:</label>
+        <label style={labelStyle}>Plate:</label>
         <input name="plate" value={vehicle.plate} onChange={handleChange} style={inputStyle} />
 
-        <label style={labelStyle}>Marka:</label>
+        <label style={labelStyle}>Brand:</label>
         <input name="brand" value={vehicle.brand} onChange={handleChange} style={inputStyle} />
 
         <label style={labelStyle}>Model:</label>
         <input name="model" value={vehicle.model} onChange={handleChange} style={inputStyle} />
 
-        <label style={labelStyle}>Tür:</label>
+        <label style={labelStyle}>Type:</label>
         <input name="type" value={vehicle.type} onChange={handleChange} style={inputStyle} />
       </div>
 

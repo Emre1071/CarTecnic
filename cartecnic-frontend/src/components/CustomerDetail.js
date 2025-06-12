@@ -140,19 +140,19 @@ const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refresh
 
   return (
     <div className="box" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <h3>Müşteri Bilgileri</h3>
+      <h3>Customer Information</h3>
 
       <div style={{ flexGrow: 1 }}>
-        <label style={labelStyle}>Ad:</label>
+        <label style={labelStyle}>Name:</label>
         <input name="name" value={customer.name} onChange={handleChange} style={inputStyle} />
 
-        <label style={labelStyle}>Soyad:</label>
+        <label style={labelStyle}>Surname:</label>
         <input name="surname" value={customer.surname} onChange={handleChange} style={inputStyle} />
 
-        <label style={labelStyle}>Telefon:</label>
+        <label style={labelStyle}>Phone:</label>
         <input name="tel" value={customer.tel} onChange={handleChange} style={inputStyle} />
 
-        <label style={labelStyle}>Ev Telefonu:</label>
+        <label style={labelStyle}>Home Phone:</label>
         <input name="homeTel" value={customer.homeTel} onChange={handleChange} style={inputStyle} />
 
         <label style={labelStyle}>Email:</label>

@@ -54,9 +54,9 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
           model: res.data.model
         },
         status: res.data.status,
-        problem: res.data.problem,             // ✅ Arıza Açıklaması
-        result: res.data.result,            // ✅ Sonuç
-        price: res.data.price,        // ✅ Ücret (TL)
+        problem: res.data.problem,             
+        result: res.data.result,           
+        price: res.data.price,       
         department: res.data.department,
         workerName: res.data.workerName,
         customerId: res.data.customerId,
@@ -76,11 +76,11 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
           <thead>
             <tr>
               <th style={thStyle}>Form No</th>
-              <th style={thStyle}>Ad</th>
-              <th style={thStyle}>Soyad</th>
-              <th style={thStyle}>Telefon</th>
-              <th style={thStyle}>Kategori</th>
-              <th style={thStyle}>Ücret</th>
+              <th style={thStyle}>Name</th>
+              <th style={thStyle}>Surname</th>
+              <th style={thStyle}>Phone</th>
+              <th style={thStyle}>Category</th>
+              <th style={thStyle}>Price</th>
             </tr>
           </thead>
           <tbody>
@@ -110,7 +110,7 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px' }}>
           <button onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>◀</button>
           <div style={{ backgroundColor: '#4CAF50', color: 'white', padding: '6px 16px', borderRadius: '4px', fontWeight: 'bold' }}>
-            Sayfa: {currentPage}
+            Page: {currentPage}
           </div>
           <button onClick={() => setCurrentPage(currentPage + 1)}>▶</button>
         </div>
@@ -125,7 +125,7 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
             <option value="Teslim Edildi">Teslim Edildi</option>
           </select>
 
-          <button onClick={clearFilters} className="green-button">Filtreyi Temizle</button>
+          <button onClick={clearFilters} className="green-button">Clear Filters</button>
 
           <select value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)} className="green-select">
             <option value="">Şube Seç</option>

@@ -102,16 +102,16 @@ const FinancialDetail = forwardRef(({ selectedOperation, refreshList, page }, re
 
   return (
     <div className="box" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <h3>Finansal Bilgiler</h3>
+      <h3>Financial Information</h3>
 
       <div style={{ flexGrow: 1 }}>
-        <label style={labelStyle}>Toplam Borç (TL):</label>
+        <label style={labelStyle}>Total Debt (TL):</label>
         <input value={totalDebt} readOnly style={inputStyle} />
 
-        <label style={labelStyle}>Toplam Ödeme (TL):</label>
+        <label style={labelStyle}>Total Payment (TL):</label>
         <input value={totalPaid} readOnly style={inputStyle} />
 
-        <label style={labelStyle}>Kalan Borç (TL):</label>
+        <label style={labelStyle}>Remaining Debt (TL):</label>
         <input value={totalDebt - totalPaid} readOnly style={inputStyle} />
 
         {showPaymentForm && (

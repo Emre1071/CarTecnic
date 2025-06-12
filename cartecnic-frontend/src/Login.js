@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from './services/api'; // ✅ Doğru yol
+import api from './services/api'; 
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -15,10 +15,10 @@ const Login = () => {
         password
       });
 
-      localStorage.setItem('currentUser', JSON.stringify(res.data)); // 🔒 sadece kullanıcı adı tutulur
-      navigate('/dashboard'); // yönlendir
+      localStorage.setItem('currentUser', JSON.stringify(res.data)); 
+      navigate('/dashboard'); 
     } catch (err) {
-      alert('Giriş başarısız: ' + err.response?.data || 'Hata');
+      alert('Login failed: ' + (err.response?.data || 'Error'));
     }
   };
 
@@ -59,9 +59,9 @@ const Login = () => {
         backgroundColor: 'rgba(0,0,0,0.75)',
         borderRadius: 10
       }}>
-        <h2 style={{ textAlign: 'center', color: '#4CAF50', marginBottom: 20 }}>🔐 Admin Girişi</h2>
+        <h2 style={{ textAlign: 'center', color: '#4CAF50', marginBottom: 20 }}>🔐 Admin Login</h2>
 
-        <label style={labelStyle}>Kullanıcı Adı:</label>
+        <label style={labelStyle}>Username:</label>
         <input
           type="text"
           value={username}
@@ -69,7 +69,7 @@ const Login = () => {
           style={inputStyle}
         />
 
-        <label style={labelStyle}>Şifre:</label>
+        <label style={labelStyle}>Password:</label>
         <input
           type="password"
           value={password}
@@ -92,7 +92,7 @@ const Login = () => {
             fontWeight: 'bold'
           }}
         >
-          Giriş Yap
+          Login
         </button>
       </div>
     </div>

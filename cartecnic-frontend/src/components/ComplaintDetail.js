@@ -168,12 +168,12 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
 
   return (
     <div className="box" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <h3>Şikayet Bilgileri</h3>
+      <h3>Complaint Information</h3>
 
       <div style={{ flexGrow: 1 }}>
         <div style={{ display: 'flex', gap: '10px' }}>
           <div style={{ flex: 1 }}>
-            <label style={labelStyle}>Durum:</label>
+            <label style={labelStyle}>Status:</label>
             <select name="status" value={complaint.status} onChange={handleChange} style={inputStyle}>
               {statusOptions.map((opt, idx) => (
                 <option key={idx} value={opt}>{opt}</option>
@@ -181,7 +181,7 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
             </select>
           </div>
           <div style={{ flex: 1 }}>
-            <label style={labelStyle}>Şube:</label>
+            <label style={labelStyle}>Branch:</label>
             <select name="branch" value={complaint.branch} onChange={handleChange} style={inputStyle}>
               <option value="Dükkan">Dükkan</option>
               <option value="Şube 1">Şube 1</option>
@@ -194,7 +194,7 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
 
         <div style={{ display: 'flex', gap: '10px' }}>
           <div style={{ flex: 1 }}>
-            <label style={labelStyle}>Departman:</label>
+            <label style={labelStyle}>Department:</label>
             <select name="department" value={complaint.department} onChange={handleChange} style={inputStyle}>
               {departmentOptions.map((opt, idx) => (
                 <option key={idx} value={opt}>{opt}</option>
@@ -202,7 +202,7 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
             </select>
           </div>
           <div style={{ flex: 1 }}>
-            <label style={labelStyle}>Çalışan:</label>
+            <label style={labelStyle}>Worker:</label>
             <select name="workerName" value={complaint.workerName} onChange={handleChange} style={inputStyle}>
               {workerOptions.map((opt, idx) => (
                 <option key={idx} value={opt}>{opt}</option>
@@ -211,13 +211,13 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
           </div>
         </div>
 
-        <label style={labelStyle}>Arıza Açıklaması:</label>
+        <label style={labelStyle}>Problem Description:</label>
         <input type="text" name="problem" value={complaint.problem} onChange={handleChange} style={inputStyle} />
 
-        <label style={labelStyle}>Sonuç:</label>
+        <label style={labelStyle}>Result:</label>
         <input type="text" name="result" value={complaint.result} onChange={handleChange} style={inputStyle} />
 
-        <label style={labelStyle}>Ücret (TL):</label>
+        <label style={labelStyle}>Price (TL):</label>
         <input type="number" name="price" value={complaint.price} onChange={handleChange} style={inputStyle} />
       </div>
 

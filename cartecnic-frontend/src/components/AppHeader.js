@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../services/api'; // ✅ Doğru yol
+import api from '../services/api';
 
 const AppHeader = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -80,7 +80,7 @@ const AppHeader = () => {
               fontWeight: 'bold'
             }}
           >
-            ⚙ Ayarlar
+            ⚙ Settings
           </button>
 
           {showMenu && (
@@ -104,7 +104,7 @@ const AppHeader = () => {
                   fontSize: '14px'
                 }}
               >
-                🔐 Şifreyi Değiştir
+                🔐 Change Password
               </div>
               <div
                 onClick={handleLogout}
@@ -114,7 +114,7 @@ const AppHeader = () => {
                   fontSize: '14px'
                 }}
               >
-                🚪 Oturumu Kapat
+                🚪 Logout
               </div>
             </div>
           )}

@@ -23,7 +23,7 @@ function SearchBar({ onSearch, onCustomerSelect, searchResults, setSearchResults
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         setShowPopup(false);
-        setSearchResults([]); // ✅ eklenen satır
+        setSearchResults([]);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -36,7 +36,7 @@ function SearchBar({ onSearch, onCustomerSelect, searchResults, setSearchResults
         <input
           className="search-input"
           type="text"
-          placeholder="Müşteri, plaka, işlem no..."
+          placeholder="Customer, plate, transaction no..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={(e) => {
@@ -44,7 +44,7 @@ function SearchBar({ onSearch, onCustomerSelect, searchResults, setSearchResults
               onSearch(query);
               setShowPopup(false);
               setSearchResults([]);
-              setQuery(''); // ✅ inputu temizle
+              setQuery(''); 
               if (typeof onEnterSearch === 'function') {
                 onEnterSearch(query);
               }
@@ -55,7 +55,7 @@ function SearchBar({ onSearch, onCustomerSelect, searchResults, setSearchResults
           className="search-button"
           onClick={() => query.length >= 2 && onSearch(query)}
         >
-          <FaSearch /> Arama
+          <FaSearch /> Search
         </button>
       </div>
 
