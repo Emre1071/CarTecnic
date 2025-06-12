@@ -34,5 +34,8 @@ namespace CarTecnicBackend.Models
         [MaxLength(100)]
         public string? Department { get; set; }
 
+        // ✅ Yeni eklenen alan: Şube
+        [MaxLength(100)]
+        public string? Branch { get; set; }
     }
 }

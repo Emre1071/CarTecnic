@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import api from '../services/api';
 
-const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFilteredCustomers, searchQuery, setSearchQuery }) => {
+const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFilteredCustomers, searchQuery, setSearchQuery, refreshFlag }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedStatus, setSelectedStatus] = useState('');
   const [selectedBranch, setSelectedBranch] = useState('');
@@ -9,17 +9,17 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
 
   const fetchCustomers = useCallback(async () => {
     try {
-      const url = `/Transaction/pagedSearch?q=${encodeURIComponent(searchQuery)}&page=${currentPage}`;
+      const url = `/Transaction/pagedSearch?q=${encodeURIComponent(searchQuery)}&page=${currentPage}&status=${encodeURIComponent(selectedStatus)}&branch=${encodeURIComponent(selectedBranch)}`;
       const res = await api.get(url);
       setFilteredCustomers(res.data);
     } catch (err) {
       console.error('Veri alınamadı:', err);
     }
-  }, [currentPage, searchQuery, setFilteredCustomers]);
+  }, [currentPage, searchQuery, selectedStatus, selectedBranch, setFilteredCustomers]);
 
   useEffect(() => {
     fetchCustomers();
-  }, [fetchCustomers]);
+  }, [fetchCustomers, refreshFlag]);
 
   const clearFilters = () => {
   if (searchQuery.trim() !== '') {
@@ -119,8 +119,10 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
           <select value={selectedStatus} onChange={(e) => setSelectedStatus(e.target.value)} className="green-select">
             <option value="">Durum Seç</option>
             <option value="Başlamadı">Başlamadı</option>
-            <option value="Devam Ediyor">Devam Ediyor</option>
+            <option value="İşlemde">İşlemde</option>
+            <option value="İade Edildi">İade Edildi</option>
             <option value="Tamamlandı">Tamamlandı</option>
+            <option value="Teslim Edildi">Teslim Edildi</option>
           </select>
 
           <button onClick={clearFilters} className="green-button">Filtreyi Temizle</button>
@@ -128,7 +130,10 @@ const CustomerList = ({ setSelectedOperation, filteredCustomers = [], setFiltere
           <select value={selectedBranch} onChange={(e) => setSelectedBranch(e.target.value)} className="green-select">
             <option value="">Şube Seç</option>
             <option value="Dükkan">Dükkan</option>
-            <option value="Servis">Servis</option>
+            <option value="Şube 1">Şube 1</option>
+            <option value="Şube 2">Şube 2</option>
+            <option value="Şube 3">Şube 3</option>
+            <option value="Şube 4">Şube 4</option>
           </select>
         </div>
       </div>

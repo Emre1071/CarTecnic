@@ -39,11 +39,18 @@ namespace CarTecnicBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<Vehicle>> CreateVehicle(Vehicle vehicle)
         {
+            var customerExists = await _context.Customers.AnyAsync(c => c.CustomerId == vehicle.CustomerId);
+            if (!customerExists)
+            {
+                return BadRequest($"Müşteri bulunamadı. CustomerId: {vehicle.CustomerId}");
+            }
+
             _context.Vehicles.Add(vehicle);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetVehicle), new { plate = vehicle.Plate }, vehicle);
         }
+
 
 
         // 🔹 Araç güncelle
@@ -53,22 +60,24 @@ namespace CarTecnicBackend.Controllers
             if (plate != vehicle.Plate)
                 return BadRequest();
 
-            _context.Entry(vehicle).State = EntityState.Modified;
+            // 🔥 Eski kaydı veritabanından bul
+            var existingVehicle = await _context.Vehicles.FindAsync(plate);
+            if (existingVehicle == null)
+                return NotFound();
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!_context.Vehicles.Any(v => v.Plate == plate))
-                    return NotFound();
+            // 🔁 Sadece gerekli alanları güncelle
+            existingVehicle.Brand = vehicle.Brand;
+            existingVehicle.Type = vehicle.Type;
+            existingVehicle.Model = vehicle.Model;
+            existingVehicle.CustomerId = vehicle.CustomerId;
 
-                throw;
-            }
-
+            await _context.SaveChangesAsync();
             return NoContent();
         }
+
+
+
+
 
         // 🔹 Araç sil
         [HttpDelete("{plate}")]

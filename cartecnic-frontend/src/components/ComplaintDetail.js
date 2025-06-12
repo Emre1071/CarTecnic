@@ -3,7 +3,7 @@ import api from '../services/api';
 import { FaPlus } from 'react-icons/fa';
 import { MdSave } from 'react-icons/md';
 
-const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refreshList }) => {
+const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refreshList, financialRef, currentCustomer, currentVehicle }) => {
   const [complaint, setComplaint] = useState({
     status: '',
     branch: '',
@@ -14,9 +14,20 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
     workerName: ''
   });
 
-  const statusOptions = ['Başlamadı', 'İşlemde', 'İade Edildi', 'Tamamlandı'];
-  const departmentOptions = ['Elektrik', 'Mekanik', 'Boyahane'];
-  const workerOptions = ['Ahmet', 'Mehmet', 'Zeynep', 'Ali'];
+  const statusOptions = ['Başlamadı', 'İşlemde', 'İade Edildi', 'Tamamlandı', 'Teslim Edildi'];
+  const departmentOptions = ['Mekanik', 'Elektrik', 'Kaporta', 'Boya', 'Klima'];
+  const workerOptions = [
+    'Ahmet Yılmaz',
+    'Mehmet Demir',
+    'Mustafa Çelik',
+    'Ali Kaya',
+    'Burak Şahin',
+    'Hakan Acar',
+    'Kemal Arslan',
+    'Onur Koç',
+    'Serkan Güneş',
+    'Eren Öztürk'
+  ];
 
   useEffect(() => {
     if (selectedOperation) {
@@ -47,40 +58,65 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
     setComplaint(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSave = async () => {
-    try {
-      if (selectedOperation) {
-        await api.put(`/Operation/${selectedOperation.operationId}`, {
-          ...selectedOperation,
-          status: complaint.status,
-          branch: complaint.branch,
-          problem: complaint.problem,
-          result: complaint.result,
-          price: complaint.price,
-          department: complaint.department,
-          workerName: complaint.workerName
-        });
-      } else {
-        alert('Lütfen önce müşteri ve ürün seçin.');
+ const handleSave = async () => {
+  try {
+    const isUpdate = !!selectedOperation?.formNo;
+    let customerId, plate;
+
+    if (isUpdate) {
+      // Güncelleme işlemi → customerId ve plate zaten operation içinde var
+      customerId = selectedOperation.customerId;
+      plate = selectedOperation.product?.plate;
+    } else {
+      // Yeni kayıt → currentCustomer ve currentVehicle üzerinden alınır
+      const tel = currentCustomer?.tel?.trim();
+      plate = currentVehicle?.plate?.trim();
+
+      if (!tel || !plate) {
+        alert("Müşteri telefon veya plaka eksik.");
         return;
       }
 
-      setComplaint({
-        status: '',
-        branch: '',
-        problem: '',
-        result: '',
-        price: 0,
-        department: '',
-        workerName: ''
-      });
-      setSelectedOperation(null);
-      refreshList(page);
-    } catch (err) {
-      console.error('Kayıt sırasında hata:', err);
-      alert('Kayıt sırasında hata oluştu.');
+      const res = await api.get(`/Customer/find-by-tel?tel=${tel}`);
+      customerId = res.data?.customerId;
+
+      if (!customerId) {
+        alert("Telefon numarasına ait müşteri bulunamadı.");
+        return;
+      }
     }
-  };
+
+    const payload = {
+      customerId,
+      plate,
+      Status: complaint.status,
+      Branch: complaint.branch,
+      Problem: complaint.problem,
+      Result: complaint.result,
+      Price: parseFloat(complaint.price),
+      Department: complaint.department,
+      WorkerName: complaint.workerName
+    };
+
+    if (isUpdate) {
+      await api.put(`/Transaction/${selectedOperation.formNo}`, {
+        ...payload,
+        transactionId: selectedOperation.formNo
+      });
+      alert("Şikayet güncellendi.");
+    } else {
+      await api.post('/Transaction', payload);
+      alert("Yeni şikayet başarıyla eklendi.");
+    }
+
+    refreshList(page);
+  } catch (err) {
+    console.error("Kayıt hatası:", err);
+    alert("❌ Şikayet kaydı sırasında hata oluştu.");
+  }
+};
+
+
 
   const handleClear = () => {
     setComplaint({
@@ -92,14 +128,17 @@ const ComplaintDetail = ({ selectedOperation, setSelectedOperation, page, refres
       department: '',
       workerName: ''
     });
+
     setSelectedOperation(prev => ({
       ...prev,
+      formNo: null,  
       problem: '',
       result: '',
       price: 0,
       department: '',
       workerName: ''
     }));
+
   };
 
   const inputStyle = {

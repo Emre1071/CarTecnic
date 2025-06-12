@@ -16,6 +16,7 @@ namespace CarTecnicBackend.Data
         public DbSet<Financial> Financials { get; set; }
         public DbSet<Worker> Workers { get; set; }
         public DbSet<CustomerPayment> CustomerPayments { get; set; }
+        public DbSet<User> Users { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

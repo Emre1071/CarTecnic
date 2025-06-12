@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from './services/api'; // ✅ Doğru yol
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -7,11 +8,17 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    if (username === 'admin' && password === 'admin') {
-      navigate('/dashboard');
-    } else {
-      setError('⚠ Kullanıcı adı veya şifre hatalı');
+  const handleLogin = async () => {
+    try {
+      const res = await api.post('/User/login', {
+        username,
+        password
+      });
+
+      localStorage.setItem('currentUser', JSON.stringify(res.data)); // 🔒 sadece kullanıcı adı tutulur
+      navigate('/dashboard'); // yönlendir
+    } catch (err) {
+      alert('Giriş başarısız: ' + err.response?.data || 'Hata');
     }
   };
 

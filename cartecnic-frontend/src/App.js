@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import './App.css';
 
 import AppHeader from './components/AppHeader';
@@ -19,9 +19,18 @@ function App() {
   const [showPopup, setShowPopup] = useState(false);
   const [filteredCustomers, setFilteredCustomers] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
+  const [currentCustomer, setCurrentCustomer] = useState(null);
+  const [currentVehicle, setCurrentVehicle] = useState(null); // Yeni eklenen state
+  const financialRef = useRef(); 
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    if (user) {
+      setSelectedOperation(user);
+    }
+  }, []);
 
   const refreshList = () => {
-    setRefreshFlag(!refreshFlag);
+    setRefreshFlag(prev => !prev);
   };
 
   const handleSearch = useCallback(async (text) => {
@@ -75,6 +84,7 @@ function App() {
             setFilteredCustomers={setFilteredCustomers}
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
+            refreshFlag={refreshFlag} 
           />
         </div>
 
@@ -85,6 +95,7 @@ function App() {
               setSelectedOperation={setSelectedOperation}
               page={page}
               refreshList={refreshList}
+              setCurrentCustomer={setCurrentCustomer}
             />
           </div>
           <div className="grid-item">
@@ -93,10 +104,13 @@ function App() {
               setSelectedOperation={setSelectedOperation}
               page={page}
               refreshList={refreshList}
+              currentCustomer={currentCustomer}
+              setCurrentVehicle={setCurrentVehicle} // Yeni eklenen prop
             />
           </div>
           <div className="grid-item">
             <FinancialDetail
+              ref={financialRef}
               selectedOperation={selectedOperation}
               setSelectedOperation={setSelectedOperation}
               page={page}
@@ -109,6 +123,9 @@ function App() {
               setSelectedOperation={setSelectedOperation}
               page={page}
               refreshList={refreshList}
+              financialRef={financialRef}
+              currentCustomer={currentCustomer}
+              currentVehicle={currentVehicle}
             />
           </div>
         </div>

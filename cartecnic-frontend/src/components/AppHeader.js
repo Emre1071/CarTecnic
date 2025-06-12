@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from '../services/api'; // ✅ Doğru yol
 
 const AppHeader = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -24,20 +25,31 @@ const AppHeader = () => {
     setConfirmPassword('');
   };
 
-  const handleSubmitPasswordChange = () => {
-    if (currentPassword !== 'admin') {
-      setMessage('❌ Mevcut şifre hatalı.');
-      return;
-    }
-    if (newPassword !== confirmPassword) {
-      setMessage('❌ Yeni şifreler eşleşmiyor.');
+  const handleSubmitPasswordChange = async () => {
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    if (!user) {
+      setMessage("❌ Kullanıcı bilgisi bulunamadı.");
       return;
     }
 
-    setMessage('✅ Şifre başarıyla değiştirildi.');
-    setTimeout(() => {
-      setShowModal(false);
-    }, 1500);
+    if (newPassword !== confirmPassword) {
+      setMessage("❌ Yeni şifreler eşleşmiyor.");
+      return;
+    }
+
+    try {
+      const res = await api.put("/User/change-password", {
+        username: user.username,
+        currentPassword,
+        newPassword
+      });
+      setMessage("✅ Şifre başarıyla değiştirildi.");
+      setTimeout(() => {
+        setShowModal(false);
+      }, 1500);
+    } catch (err) {
+      setMessage("❌ " + (err.response?.data || "Hata"));
+    }
   };
 
   useEffect(() => {

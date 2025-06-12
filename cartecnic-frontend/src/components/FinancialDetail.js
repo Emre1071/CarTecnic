@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, forwardRef, useImperativeHandle } from 'react';
 import api from '../services/api';
 import { FaPlus } from 'react-icons/fa';
 import { MdSave } from 'react-icons/md';
 import { AiOutlineTable } from 'react-icons/ai';
 
-const FinancialDetail = ({ selectedOperation, refreshList, page }) => {
+const FinancialDetail = forwardRef(({ selectedOperation, refreshList, page }, ref) => {
   const [totalDebt, setTotalDebt] = useState(0);
   const [totalPaid, setTotalPaid] = useState(0);
   const [paymentAmount, setPaymentAmount] = useState('');
@@ -68,6 +68,14 @@ const FinancialDetail = ({ selectedOperation, refreshList, page }) => {
       alert("Ödeme sırasında hata oluştu.");
     }
   };
+
+  useImperativeHandle(ref, () => ({
+    refreshFinancials: () => {
+      if (selectedOperation?.customerId) {
+        fetchFinancials(selectedOperation.customerId);
+      }
+    }
+  }));
 
   const inputStyle = {
     width: '100%',
@@ -184,6 +192,6 @@ const FinancialDetail = ({ selectedOperation, refreshList, page }) => {
       )}
     </div>
   );
-};
+});
 
 export default FinancialDetail;

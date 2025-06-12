@@ -24,6 +24,7 @@ namespace CarTecnicBackend.Models
         [MaxLength(100), EmailAddress]
         public string? Mail { get; set; }
 
+
         // İlişkiler
         public ICollection<Vehicle> Vehicles { get; set; } = new List<Vehicle>();
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();

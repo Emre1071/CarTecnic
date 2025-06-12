@@ -88,12 +88,16 @@ namespace CarTecnicBackend.Controllers
         [HttpGet("find-by-tel")]
         public async Task<ActionResult<Customer>> GetByTel([FromQuery] string tel)
         {
-            var customer = await _context.Customers.FirstOrDefaultAsync(c => c.Tel == tel);
+            tel = tel?.Trim(); // gelen telefon numarasını boşluksuzlaştır
+            var customer = await _context.Customers
+                .FirstOrDefaultAsync(c => c.Tel.Trim() == tel);
+
             if (customer == null)
                 return NotFound();
 
             return customer;
         }
+
 
 
 

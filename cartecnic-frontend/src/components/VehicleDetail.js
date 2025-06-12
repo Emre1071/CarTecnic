@@ -3,7 +3,7 @@ import api from '../services/api';
 import { FaPlus } from 'react-icons/fa';
 import { MdSave } from 'react-icons/md';
 
-const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshList }) => {
+const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshList, currentCustomer, setCurrentVehicle }) => {
   const [vehicle, setVehicle] = useState({
     plate: '',
     brand: '',
@@ -29,47 +29,67 @@ const VehicleDetail = ({ selectedOperation, setSelectedOperation, page, refreshL
     }
   }, [selectedOperation]);
 
+  useEffect(() => {
+    setCurrentVehicle(vehicle); // tüm alanlar güncellensin
+  }, [vehicle]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setVehicle((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSave = async () => {
-    try {
-      if (selectedOperation && selectedOperation.productId) {
-        await api.put(`/Product/${selectedOperation.productId}`, vehicle);
-      } else {
-        await api.post('/Product', vehicle);
+  
+ const handleSave = async () => {
+  try {
+    const isUpdate = !!selectedOperation?.product?.plate;
+    let customerId = null;
+
+    if (isUpdate) {
+      // 🔧 Güncelleme: customerId zaten selectedOperation içinde vardır
+      customerId = selectedOperation.customerId;
+    } else {
+      // ➕ Yeni kayıt: telefonla müşteri sorgulanmalı
+      const tel = currentCustomer?.tel?.trim();
+      if (!tel) {
+        alert("Telefon numarası bulunamadı.");
+        return;
       }
 
-      setVehicle({
-        plate: '',
-        brand: '',
-        type: '',
-        model: ''
-      });
-      setSelectedOperation(null);
-      refreshList(page);
-    } catch (err) {
-      alert('Araç kaydı sırasında hata oluştu!');
-      console.error(err);
+      const res = await api.get(`/Customer/find-by-tel?tel=${tel}`);
+      customerId = res.data?.customerId;
+
+      if (!customerId) {
+        alert("Müşteri bulunamadı, lütfen önce müşteri kaydını yapınız.");
+        return;
+      }
     }
-  };
+
+    const payload = {
+      plate: vehicle.plate,
+      brand: vehicle.brand,
+      type: vehicle.type,
+      model: vehicle.model,
+      customerId: customerId
+    };
+
+    if (isUpdate) {
+      await api.put(`/Vehicle/${vehicle.plate}`, payload); // veya uygun ID
+      alert("Araç başarıyla güncellendi.");
+    } else {
+      await api.post('/Vehicle', payload);
+      alert("Araç başarıyla eklendi.");
+    }
+
+    refreshList(page);
+
+  } catch (err) {
+    console.error(err);
+    alert('❌ Araç kaydı sırasında bir hata oluştu.');
+  }
+};
 
   const handleClear = () => {
-    setSelectedOperation(prev => {
-      if (!prev) return null;
-      return {
-        ...prev,
-        product: { plate: '', brand: '', type: '', model: '' },
-        status: '',
-        fault: '',
-        result: '',
-        price: 0,
-        department: '',
-        workerName: ''
-      };
-    });
+    setVehicle({ plate: '', brand: '', type: '', model: '' });
   };
 
   const inputStyle = {

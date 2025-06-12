@@ -3,7 +3,14 @@ import api from '../services/api';
 import { FaPlus } from 'react-icons/fa';
 import { MdSave } from 'react-icons/md';
 
-const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refreshList }) => {
+// ✅ E-posta doğrulama fonksiyonu
+const isValidEmail = (email) => {
+  if (!email) return true; // boşsa geçerli say (zorunlu değilse)
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+};
+
+const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refreshList, setCurrentCustomer }) => {
   const [customer, setCustomer] = useState({
     name: '',
     surname: '',
@@ -28,25 +35,78 @@ const CustomerDetail = ({ selectedOperation, setSelectedOperation, page, refresh
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setCustomer(prev => ({ ...prev, [name]: value }));
+    const updated = { ...customer, [name]: value };
+    setCustomer(updated);
+    setCurrentCustomer(updated); // dışarıya aktar
   };
+
+  const checkDuplicateTel = async (tel) => {
+    try {
+      const res = await api.get(`/Customer/find-by-tel?tel=${tel}`);
+      return res.data ? true : false;
+    } catch (err) {
+      if (err.response?.status === 404) {
+        console.warn("Müşteri bulunamadı, yeni kayıt yapılabilir.");
+      } else {
+        console.error("Telefon kontrolü sırasında hata:", err);
+      }
+      return false; 
+    }
+  };
+
+
 
   const handleSave = async () => {
     try {
-      if (selectedOperation && selectedOperation.customerId) {
-        await api.put(`/Customer/${selectedOperation.customerId}`, customer);
-      } else {
-        await api.post('/Customer', customer);
+      if (!customer.name || !customer.surname || !customer.tel) {
+        alert("İsim, soyisim ve telefon zorunludur.");
+        return;
       }
 
-      setCustomer({ name: '', surname: '', tel: '', homeTel: '', mail: '' });
-      setSelectedOperation(null);
+      if (customer.mail && !isValidEmail(customer.mail)) {
+        alert("Geçerli bir e-posta adresi giriniz.");
+        return;
+      }
+
+      const preparedCustomer = {
+        ...customer,
+        customerId: selectedOperation?.customerId,
+        mail: customer.mail?.trim() === "" ? null : customer.mail.trim(),
+        homeTel: customer.homeTel?.trim() === "" ? null : customer.homeTel.trim()
+      };
+
+      if (!selectedOperation?.customerId) {
+        const isDuplicate = await checkDuplicateTel(customer.tel);
+        if (isDuplicate) {
+          alert("Bu telefon numarasıyla kayıtlı müşteri zaten var!");
+          return;
+        }
+
+        // ✅ Yeni müşteri ekleme
+        await api.post('/Customer', preparedCustomer);
+        alert("Müşteri başarıyla eklendi!");
+      } else if (selectedOperation.customerId) {
+        // ✅ Mevcut müşteri güncelleme
+        await api.put(`/Customer/${selectedOperation.customerId}`, preparedCustomer);
+        alert("Müşteri bilgileri başarıyla güncellendi!");
+      } else {
+        const isDuplicate = await checkDuplicateTel(customer.tel);
+        if (isDuplicate) {
+          alert("Bu telefon numarasıyla kayıtlı müşteri zaten var!");
+          return;
+        }
+      }
+
       refreshList(page);
+
     } catch (err) {
-      alert('Kayıt sırasında hata oluştu!');
-      console.error(err);
+      console.error(err.response?.data || err);
+      alert('❌ Kayıt sırasında bir hata oluştu!');
     }
   };
+
+
+
 
   const handleClear = () => {
     setCustomer({ name: '', surname: '', tel: '', homeTel: '', mail: '' });
