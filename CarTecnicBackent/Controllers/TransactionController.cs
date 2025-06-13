@@ -16,7 +16,7 @@ namespace CarTecnicBackend.Controllers
             _context = context;
         }
 
-        // 🔹 Tüm işlemleri getir
+        //  Tüm işlemleri getir
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Transaction>>> GetTransactions()
         {
@@ -28,7 +28,7 @@ namespace CarTecnicBackend.Controllers
 
       
 
-        // 🔹 Yeni işlem ekle
+        //  Yeni işlem ekle
         [HttpPost]
         public async Task<ActionResult<Transaction>> CreateTransaction(Transaction transaction)
         {
@@ -38,7 +38,7 @@ namespace CarTecnicBackend.Controllers
             return CreatedAtAction(nameof(GetFullTransaction), new { id = transaction.TransactionId }, transaction);
         }
 
-        // 🔹 İşlem güncelle
+        //  İşlem güncelle
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTransaction(int id, Transaction transaction)
         {
@@ -62,7 +62,7 @@ namespace CarTecnicBackend.Controllers
             return NoContent();
         }
 
-        // 🔹 İşlem sil
+        //  İşlem sil
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTransaction(int id)
         {
@@ -77,7 +77,7 @@ namespace CarTecnicBackend.Controllers
         }
 
 
-        // 🔹 ID ile işlem getir
+        //  ID ile işlem getir
         [HttpGet("{id}")]
         public async Task<ActionResult<object>> GetFullTransaction(int id)
         {
@@ -117,14 +117,14 @@ namespace CarTecnicBackend.Controllers
 
 
 
-        // 🔍 Sayfa numarasına göre 20'şerli işlem verisi getir
+        //  Sayfa numarasına göre 20'şerli işlem verisi getir
         [HttpGet("pagedSearch")]
         public async Task<ActionResult<IEnumerable<object>>> GetPagedFilteredTransactions(
      [FromQuery] string? q = "",
      [FromQuery] int page = 1,
      [FromQuery] string? status = null,
      [FromQuery] string? department = null,
-     [FromQuery] string? branch = null // ✅ Yeni eklenen parametre
+     [FromQuery] string? branch = null 
  )
         {
             const int pageSize = 20;
@@ -220,7 +220,7 @@ namespace CarTecnicBackend.Controllers
 
                 bool matches = false;
 
-                // 🔹 2 kelime varsa sadece ad + soyad alanına bak
+                //  2 kelime varsa sadece ad + soyad alanına bak
                 if (keywords.Length >= 2)
                 {
                     var name = t.Customer?.Name?.ToLower() ?? "";

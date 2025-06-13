@@ -5,7 +5,7 @@ namespace CarTecnicBackend.Models
     public class Vehicle
     {
         [Key]
-        public string Plate { get; set; } = string.Empty; // Plaka = Primary Key
+        public string Plate { get; set; } = string.Empty; 
 
         [Required, MaxLength(100)]
         public string Brand { get; set; } = string.Empty;
@@ -16,11 +16,9 @@ namespace CarTecnicBackend.Models
         [Required, MaxLength(100)]
         public string Model { get; set; } = string.Empty;
 
-        // Müşteri ilişkisi
         public int CustomerId { get; set; }
         public Customer? Customer { get; set; }
         
-        // İşlem ilişkisi
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
     }
 }

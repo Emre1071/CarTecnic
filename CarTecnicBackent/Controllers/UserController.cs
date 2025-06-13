@@ -16,7 +16,7 @@ namespace CarTecnicBackend.Controllers
             _context = context;
         }
 
-        // 🔐 Kullanıcı girişi
+        //  Kullanıcı girişi
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] User loginData)
         {
@@ -37,7 +37,7 @@ namespace CarTecnicBackend.Controllers
             });
         }
 
-        // 🔁 Şifre değiştirme
+        //  Şifre değiştirme
         [HttpPut("change-password")]
         public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordDto dto)
         {
@@ -63,7 +63,7 @@ namespace CarTecnicBackend.Controllers
         }
     }
 
-    // 🧾 Şifre Değiştirme DTO
+    //  Şifre Değiştirme DTO
     public class ChangePasswordDto
     {
         public string Username { get; set; } = string.Empty;

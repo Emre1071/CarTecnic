@@ -8,13 +8,13 @@ namespace CarTecnicBackend.Models
         [Key]
         public int TransactionId { get; set; }
 
-        // Müşteri ilişkisi
+        
         public int CustomerId { get; set; }
-        public Customer? Customer { get; set; }   // ✔️ Nullable
+        public Customer? Customer { get; set; }  
 
-        // Araç ilişkisi (Plaka ile)
+        
         public string Plate { get; set; } = string.Empty;
-        public Vehicle? Vehicle { get; set; }     // ✔️ Nullable
+        public Vehicle? Vehicle { get; set; }   
 
         [Required, MaxLength(50)]
         public string Status { get; set; } = "Bekliyor";
@@ -34,7 +34,6 @@ namespace CarTecnicBackend.Models
         [MaxLength(100)]
         public string? Department { get; set; }
 
-        // ✅ Yeni eklenen alan: Şube
         [MaxLength(100)]
         public string? Branch { get; set; }
     }

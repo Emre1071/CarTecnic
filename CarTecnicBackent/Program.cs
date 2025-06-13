@@ -1,31 +1,31 @@
-﻿using CarTecnicBackend.Data; // 📌 DbContext için gerekli
+﻿using CarTecnicBackend.Data; 
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ VERİTABANI BAĞLANTISI
+//  Database
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ✅ CORS AYARLARI
+//  CORS Settings
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhost3000", policy =>
     {
-        policy.WithOrigins("http://localhost:3000") // React frontend için
+        policy.WithOrigins("http://localhost:3000") // React localhost for frontend
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
 });
 
-// ✅ CONTROLLER & SWAGGER
+//  CONTROLLER & SWAGGER
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// ✅ MIDDLEWARE
+//  MIDDLEWARE
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -34,7 +34,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// 🟢 CORS aktif ediliyor (Authorization'dan önce!)
+// CORS activation
 app.UseCors("AllowLocalhost3000");
 
 app.UseAuthorization();

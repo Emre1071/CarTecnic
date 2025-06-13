@@ -6,7 +6,7 @@ namespace CarTecnicBackend.Models
     public class Financial
     {
         [Key]
-        [ForeignKey("Customer")] // Müşteri ile birebir bağlantı
+        [ForeignKey("Customer")] 
         public int CustomerId { get; set; }
 
         public Customer Customer { get; set; } = null!;

@@ -16,14 +16,14 @@ namespace CarTecnicBackend.Controllers
             _context = context;
         }
 
-        // 🔹 Tüm araçları getir
+        // Tüm araçları getir
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Vehicle>>> GetVehicles()
         {
             return await _context.Vehicles.ToListAsync();
         }
 
-        // 🔹 Plakaya göre araç getir
+        //  Plakaya göre araç getir
         [HttpGet("{plate}")]
         public async Task<ActionResult<Vehicle>> GetVehicle(string plate)
         {
@@ -35,7 +35,7 @@ namespace CarTecnicBackend.Controllers
         }
 
 
-        // 🔹 Yeni araç ekle
+        //  Yeni araç ekle
         [HttpPost]
         public async Task<ActionResult<Vehicle>> CreateVehicle(Vehicle vehicle)
         {
@@ -53,19 +53,19 @@ namespace CarTecnicBackend.Controllers
 
 
 
-        // 🔹 Araç güncelle
+        //  Araç güncelle
         [HttpPut("{plate}")]
         public async Task<IActionResult> UpdateVehicle(string plate, Vehicle vehicle)
         {
             if (plate != vehicle.Plate)
                 return BadRequest();
 
-            // 🔥 Eski kaydı veritabanından bul
+            // Eski kaydı veritabanından bul
             var existingVehicle = await _context.Vehicles.FindAsync(plate);
             if (existingVehicle == null)
                 return NotFound();
 
-            // 🔁 Sadece gerekli alanları güncelle
+            //  Sadece gerekli alanları güncelle
             existingVehicle.Brand = vehicle.Brand;
             existingVehicle.Type = vehicle.Type;
             existingVehicle.Model = vehicle.Model;
@@ -79,7 +79,7 @@ namespace CarTecnicBackend.Controllers
 
 
 
-        // 🔹 Araç sil
+        //  Araç sil
         [HttpDelete("{plate}")]
         public async Task<IActionResult> DeleteVehicle(string plate)
         {

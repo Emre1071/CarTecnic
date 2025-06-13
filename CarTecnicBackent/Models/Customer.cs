@@ -30,7 +30,7 @@ namespace CarTecnicBackend.Models
         public ICollection<Transaction> Transactions { get; set; } = new List<Transaction>();
         public Financial? Financial { get; set; }
 
-        // 💳 Müşteri ödeme ilişkisi (bire-çok)
+        //  Müşteri ödeme ilişkisi 
         public ICollection<CustomerPayment> CustomerPayments { get; set; } = new List<CustomerPayment>();
     }
 }

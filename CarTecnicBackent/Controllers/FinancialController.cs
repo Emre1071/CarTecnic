@@ -16,7 +16,7 @@ namespace CarTecnicBackend.Controllers
             _context = context;
         }
 
-        // 🔹 Tüm finansal kayıtları getir
+        // Tüm finansal kayıtları getir
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Financial>>> GetAll()
         {
@@ -25,7 +25,7 @@ namespace CarTecnicBackend.Controllers
                 .ToListAsync();
         }
 
-        // 🔹 Müşteri ID ile finansal kayıt getir
+        //  Müşteri ID ile finansal kayıt getir
         [HttpGet("{customerId}")]
         public async Task<ActionResult<Financial>> GetByCustomerId(int customerId)
         {
@@ -39,16 +39,16 @@ namespace CarTecnicBackend.Controllers
             return financial;
         }
 
-        // 🔸 Yeni ödeme ekle
+        //  Yeni ödeme ekle
         [HttpPost("add-payment")]
         public async Task<IActionResult> AddPayment([FromBody] CustomerPayment payment)
         {
-            // 🧾 Geçerli müşteri kontrolü
+            //  Geçerli müşteri kontrolü
             var customerExists = await _context.Customers.AnyAsync(c => c.CustomerId == payment.CustomerId);
             if (!customerExists)
                 return NotFound("Belirtilen müşteri bulunamadı.");
 
-            // 🕒 Ödeme tarihini şu an olarak ata
+            //  Ödeme tarihini şu an olarak ata
             payment.PaymentDate = DateTime.Now;
 
             _context.Add(payment);
@@ -66,17 +66,17 @@ namespace CarTecnicBackend.Controllers
         [HttpGet("summary/{customerId}")]
         public async Task<IActionResult> GetFinancialSummary(int customerId)
         {
-            // 🟠 Toplam Borç = Customer'ın tüm işlemlerindeki Price toplamı
+            //  Toplam Borç = Customer'ın tüm işlemlerindeki Price toplamı
             var totalDebt = await _context.Transactions
                 .Where(t => t.CustomerId == customerId)
                 .SumAsync(t => t.Price ?? 0);
 
-            // 🟢 Toplam Ödeme = Bu müşterinin yaptığı tüm ödemelerin toplamı
+            //  Toplam Ödeme = Bu müşterinin yaptığı tüm ödemelerin toplamı
             var totalPaid = await _context.Set<CustomerPayment>()
                 .Where(p => p.CustomerId == customerId)
                 .SumAsync(p => p.PaymentAmount);
 
-            // 🔵 Kalan Borç = Borç - Ödeme
+            //  Kalan Borç = Borç - Ödeme
             var remaining = totalDebt - totalPaid;
 
             return Ok(new
@@ -89,7 +89,7 @@ namespace CarTecnicBackend.Controllers
 
 
 
-        // 🔹 Müşteriye ait tüm ödeme kayıtlarını getir
+        //  Müşteriye ait tüm ödeme kayıtlarını getir
         [HttpGet("payments/{customerId}")]
         public async Task<IActionResult> GetCustomerPayments(int customerId)
         {

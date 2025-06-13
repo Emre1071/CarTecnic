@@ -16,14 +16,14 @@ namespace CarTecnicBackend.Controllers
             _context = context;
         }
 
-        // 🔹 Tüm müşterileri getir
+        //  Tüm müşterileri getir
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {
             return await _context.Customers.ToListAsync();
         }
 
-        // 🔹 ID ile müşteri getir
+        // ID ile müşteri getir
         [HttpGet("{id}")]
         public async Task<ActionResult<Customer>> GetCustomer(int id)
         {
@@ -35,7 +35,7 @@ namespace CarTecnicBackend.Controllers
         }
 
 
-        // 🔹 Yeni müşteri oluştur
+        // Yeni müşteri oluştur
         [HttpPost]
         public async Task<ActionResult<Customer>> CreateCustomer(Customer customer)
         {
@@ -46,7 +46,7 @@ namespace CarTecnicBackend.Controllers
         }
 
 
-        // 🔹 Müşteri güncelle
+        // Müşteri güncelle
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCustomer(int id, Customer customer)
         {
@@ -70,7 +70,7 @@ namespace CarTecnicBackend.Controllers
             return NoContent();
         }
 
-        // 🔹 Müşteri sil
+        //  Müşteri sil
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCustomer(int id)
         {
@@ -84,11 +84,11 @@ namespace CarTecnicBackend.Controllers
             return NoContent();
         }
 
-        // 🔍 Telefon numarasına göre ara
+        //  Telefon numarasına göre ara
         [HttpGet("find-by-tel")]
         public async Task<ActionResult<Customer>> GetByTel([FromQuery] string tel)
         {
-            tel = tel?.Trim(); // gelen telefon numarasını boşluksuzlaştır
+            tel = tel?.Trim(); 
             var customer = await _context.Customers
                 .FirstOrDefaultAsync(c => c.Tel.Trim() == tel);
 
@@ -101,7 +101,7 @@ namespace CarTecnicBackend.Controllers
 
 
 
-        // 🔍 Belirli müşteri ID'sine göre işlemleri (Transaction) getir
+        //  Belirli müşteri ID'sine göre işlemleri (Transaction) getir
         [HttpGet("filter-by-customer/{customerId}")]
         public async Task<ActionResult<IEnumerable<object>>> GetTransactionsByCustomerId(int customerId)
         {
